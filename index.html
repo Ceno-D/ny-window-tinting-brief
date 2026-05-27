@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Google Ads Report — NY Window Tinting</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07090f;
+    --bg2: #0d1117;
+    --card: #111827;
+    --card2: #1a2235;
+    --border: #1f2d45;
+    --blue: #3b82f6;
+    --blue-glow: rgba(59,130,246,0.15);
+    --green: #10b981;
+    --green-glow: rgba(16,185,129,0.12);
+    --amber: #f59e0b;
+    --amber-glow: rgba(245,158,11,0.12);
+    --red: #ef4444;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --subtle: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(7,9,15,0.85); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-weight: 700; font-size: 0.95rem; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .nav-brand .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { background: var(--blue); color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  /* HERO */
+  .hero {
+    padding: 140px 2rem 80px;
+    max-width: 1100px; margin: 0 auto;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-glow); border: 1px solid rgba(59,130,246,0.3);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; color: var(--blue);
+    margin-bottom: 2rem; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900;
+    line-height: 1.1; margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero h1 span { background: linear-gradient(135deg, #3b82f6, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 620px; margin: 0 auto 3rem; }
+  .hero-date { font-size: 0.8rem; color: var(--subtle); margin-top: 1rem; }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; max-width: 900px; margin: 0 auto 5rem;
+  }
+  .stat-cell {
+    background: var(--card); padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .stat-label { font-size: 0.75rem; font-weight: 600; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .stat-value { font-size: 2rem; font-weight: 800; }
+  .stat-value.green { color: var(--green); }
+  .stat-value.blue { color: var(--blue); }
+  .stat-value.amber { color: var(--amber); }
+  .stat-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.3rem; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-label { font-size: 0.75rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; }
+  .section-sub { font-size: 1rem; color: var(--muted); max-width: 640px; margin-bottom: 3rem; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 1rem 0; }
+
+  /* FINDINGS GRID */
+  .findings-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .finding-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    transition: transform 0.2s, border-color 0.2s;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s;
+  }
+  .finding-card.visible { opacity: 1; transform: translateY(0); }
+  .finding-card:hover { border-color: var(--blue); }
+  .finding-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .finding-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .finding-body { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+  .finding-card.critical { border-left: 3px solid var(--red); }
+  .finding-card.warning { border-left: 3px solid var(--amber); }
+  .finding-card.good { border-left: 3px solid var(--green); }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .pill.red { background: rgba(239,68,68,0.15); color: #ef4444; }
+  .pill.amber { background: rgba(245,158,11,0.15); color: #f59e0b; }
+  .pill.green { background: rgba(16,185,129,0.15); color: #10b981; }
+
+  /* BEFORE/AFTER */
+  .ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .ba-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 2rem;
+  }
+  .ba-card h3 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
+  .ba-card.before h3 { color: var(--red); }
+  .ba-card.after h3 { color: var(--green); }
+  .metric-row { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { font-size: 0.85rem; color: var(--muted); }
+  .metric-val { font-size: 1.1rem; font-weight: 700; }
+  .metric-val.bad { color: var(--red); }
+  .metric-val.good { color: var(--green); }
+  .metric-val.neutral { color: var(--text); }
+  .delta { font-size: 0.75rem; font-weight: 600; padding: 2px 8px; border-radius: 100px; }
+  .delta.up { background: rgba(16,185,129,0.15); color: var(--green); }
+  .delta.down-bad { background: rgba(239,68,68,0.15); color: var(--red); }
+
+  /* FIXES DONE */
+  .fixes-list { display: flex; flex-direction: column; gap: 1rem; }
+  .fix-item {
+    display: flex; gap: 1.25rem; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .fix-item.visible { opacity: 1; transform: translateX(0); }
+  .fix-check { width: 28px; height: 28px; background: var(--green-glow); border: 1.5px solid var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; color: var(--green); margin-top: 2px; }
+  .fix-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .fix-desc { font-size: 0.83rem; color: var(--muted); }
+  .fix-tag { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--blue); background: var(--blue-glow); padding: 2px 8px; border-radius: 4px; display: inline-block; margin-right: 6px; margin-top: 6px; }
+
+  /* HEALTH SCORE */
+  .health-block {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2.5rem;
+  }
+  .health-score-display { display: flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .health-num { font-size: 4rem; font-weight: 900; color: var(--amber); }
+  .health-denom { font-size: 1.5rem; color: var(--subtle); }
+  .health-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
+  .health-bars { display: flex; flex-direction: column; gap: 1rem; }
+  .hbar-row { display: grid; grid-template-columns: 180px 1fr 50px; align-items: center; gap: 1rem; }
+  .hbar-name { font-size: 0.83rem; color: var(--muted); font-weight: 500; }
+  .hbar-track { height: 8px; background: var(--border); border-radius: 100px; overflow: hidden; }
+  .hbar-fill { height: 100%; border-radius: 100px; transition: width 1.5s cubic-bezier(0.4,0,0.2,1); width: 0%; }
+  .hbar-fill.blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .hbar-fill.green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .hbar-fill.amber { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .hbar-fill.red { background: linear-gradient(90deg, #ef4444, #f87171); }
+  .hbar-score { font-size: 0.83rem; font-weight: 700; color: var(--text); text-align: right; }
+
+  /* OPPORTUNITY */
+  .opp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .opp-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.75rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .opp-card.visible { opacity: 1; transform: translateY(0); }
+  .opp-number { font-size: 2.5rem; font-weight: 900; color: var(--blue); opacity: 0.3; margin-bottom: 0.5rem; }
+  .opp-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .opp-body { font-size: 0.83rem; color: var(--muted); }
+
+  /* COMPETITOR */
+  .comp-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; align-items: start; }
+  .comp-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+  .comp-card.jerry { border-color: var(--blue); }
+  .comp-name { font-size: 1rem; font-weight: 800; margin-bottom: 1.5rem; }
+  .comp-name.jerry { color: var(--blue); }
+  .comp-name.tm { color: var(--amber); }
+  .comp-row { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.83rem; }
+  .comp-row:last-child { border-bottom: none; }
+  .comp-key { color: var(--muted); }
+  .comp-val { font-weight: 600; }
+  .comp-val.win { color: var(--green); }
+  .comp-val.lose { color: var(--red); }
+  .vs-badge { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--border); border-radius: 50%; font-weight: 900; font-size: 0.9rem; color: var(--muted); align-self: center; }
+
+  /* CTA */
+  .cta-section {
+    text-align: center; padding: 5rem 2rem;
+    background: linear-gradient(180deg, transparent, var(--bg2));
+  }
+  .cta-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; }
+  .cta-section p { color: var(--muted); margin-bottom: 2rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: white; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: transform 0.2s, opacity 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--muted); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 1px solid var(--border); margin-left: 1rem; transition: color 0.2s, border-color 0.2s; }
+  .btn-secondary:hover { color: var(--text); border-color: var(--blue); }
+
+  /* PENDING */
+  .pending-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .pending-card { background: var(--card); border: 1px solid var(--amber-glow); border-radius: 12px; padding: 1.5rem; }
+  .pending-num { font-size: 2rem; font-weight: 900; color: var(--amber); opacity: 0.5; }
+  .pending-title { font-weight: 700; font-size: 0.95rem; margin: 0.5rem 0 0.25rem; }
+  .pending-desc { font-size: 0.82rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--subtle); font-size: 0.8rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .ba-grid { grid-template-columns: 1fr; }
+    .opp-grid { grid-template-columns: 1fr; }
+    .comp-compare { grid-template-columns: 1fr; }
+    .vs-badge { display: none; }
+    .hbar-row { grid-template-columns: 120px 1fr 40px; }
+    .nav-links { display: none; }
+    .pending-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="dot"></div>
+    NY Window Tinting · Google Ads Report
+  </div>
+  <div class="nav-links">
+    <a href="#audit">Audit</a>
+    <a href="#fixed">Fixed Today</a>
+    <a href="#results">Results</a>
+    <a href="#competitor">Competitor</a>
+    <a href="#next">What's Next</a>
+  </div>
+  <a href="workplan.html" class="nav-cta">View Full Strategy →</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📊 Google Ads Intelligence Report</div>
+  <h1>Your Ads Are Working.<br><span>Now Let's Make Them Work Harder.</span></h1>
+  <p>Complete audit, live account fixes, competitive intelligence, and a 6-month growth roadmap — all built from your actual data.</p>
+  <div class="hero-date">Prepared by Cenovate Marketing · Danny · May 27, 2026</div>
+</div>
+
+<!-- STATS BAR -->
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+  <div class="stats-bar">
+    <div class="stat-cell">
+      <div class="stat-label">Conversions / Month</div>
+      <div class="stat-value green">22</div>
+      <div class="stat-sub">↑ from 16 before Phase 1</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Avg. Cost Per Lead</div>
+      <div class="stat-value green">$35.91</div>
+      <div class="stat-sub">↓ from $41.38 baseline</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Account Health Score</div>
+      <div class="stat-value amber">48/100</div>
+      <div class="stat-sub">→ Projected 72+ post-fixes</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Reports Delivered</div>
+      <div class="stat-value blue">7</div>
+      <div class="stat-sub">Audit · Creative · Budget · Strategy</div>
+    </div>
+  </div>
+</div>
+
+<!-- AUDIT FINDINGS -->
+<section id="audit">
+  <div class="section-label">What We Found</div>
+  <div class="section-title">The Account Had 3 Problems Killing Performance</div>
+  <div class="section-sub">After a full 74-check audit across every campaign, ad group, keyword, creative asset, and landing page.</div>
+
+  <div class="findings-grid">
+    <div class="finding-card critical">
+      <div class="pill red">Critical</div>
+      <div class="finding-icon">🎯</div>
+      <div class="finding-title">Near Me RSA: Wrong Headline Pinned</div>
+      <div class="finding-body">H1 was pinned to "Long Island Window Tinting" — a geographic headline — but every keyword in the ad group is a proximity query ("tint shop near me", "car tints near me"). Google tanks Quality Score when the headline doesn't match intent. This is why 5 keywords were flagged "low quality."</div>
+    </div>
+    <div class="finding-card critical">
+      <div class="pill red">Critical</div>
+      <div class="finding-icon">💸</div>
+      <div class="finding-title">One Keyword Burning $36 With Zero Returns</div>
+      <div class="finding-body">"car window tinting near me" (Broad Match) — 8 clicks, $36.28 spent, 0 conversions, "Low Quality" flag. This single keyword was consuming 65% of the Near Me campaign's entire budget while producing nothing.</div>
+    </div>
+    <div class="finding-card critical">
+      <div class="pill red">Critical</div>
+      <div class="finding-icon">📦</div>
+      <div class="finding-title">PMax Running on Stock Images — No Real Photos</div>
+      <div class="finding-body">All 20 images in the PMax asset group were auto-generated stock URLs from Google's syndication network. Jerry's real shop photos, the Corvette, the Tesla — none of it was in the ads. Google was showing generic imagery to represent a 40-year-old certified shop.</div>
+    </div>
+    <div class="finding-card warning">
+      <div class="pill amber">Warning</div>
+      <div class="finding-icon">⚡</div>
+      <div class="finding-title">PMax Capped at $15/Day — Limited by Budget Daily</div>
+      <div class="finding-body">The PMax campaign hits its daily cap every morning. At $38 CPA and $15/day, the algorithm gets 0.4 conversions/day ceiling — then stops showing ads. The 14-day CPA jumped to $66 because budget-capped PMax can't optimize effectively.</div>
+    </div>
+    <div class="finding-card warning">
+      <div class="pill amber">Warning</div>
+      <div class="finding-icon">📝</div>
+      <div class="finding-title">Both Active RSAs: POOR Ad Strength</div>
+      <div class="finding-body">The rebuilt ads had redundant headlines (3 XPEL references, 2 "40 years" references) and 2 pinned headlines each — leaving only 1 free position for Google to optimize. Google flagged both as POOR and couldn't effectively A/B test combinations.</div>
+    </div>
+    <div class="finding-card warning">
+      <div class="pill amber">Warning</div>
+      <div class="finding-icon">🌐</div>
+      <div class="finding-title">Landing Page: 84 Reviews Hidden, 11 H1 Tags</div>
+      <div class="finding-body">The ad landing page has a "See What Our Customers Say" section that exists but shows no reviews. Jerry has 84 Google reviews at 4.8★ — none appear on the page. Meanwhile, 11 separate sections are all tagged H1, suppressing Google's landing page experience score.</div>
+    </div>
+    <div class="finding-card good">
+      <div class="pill green">Strong</div>
+      <div class="finding-icon">✅</div>
+      <div class="finding-title">Conversion Tracking: Clean</div>
+      <div class="finding-body">All conversions are real phone calls from ads. No view-through inflation, no duplicate conversion actions. The tracking foundation is solid — data can be trusted for optimization decisions.</div>
+    </div>
+    <div class="finding-card good">
+      <div class="pill green">Strong</div>
+      <div class="finding-icon">💡</div>
+      <div class="finding-title">Local Campaign: Exceptional CVR</div>
+      <div class="finding-body">The Local ad group is converting at 28.57% — nearly 4× the industry average for local services. When someone clicks, they call. The landing page and offer are working. The problem is volume, not quality.</div>
+    </div>
+    <div class="finding-card good">
+      <div class="pill green">Strong</div>
+      <div class="finding-icon">🚫</div>
+      <div class="finding-title">Negative Keywords: Solid Foundation</div>
+      <div class="finding-body">Two manager-owned shared lists (780+ and 164 terms) are active, plus campaign-level negatives covering competitor names, exemption queries, wrong locations, and Spanish language queries. Clean from the Phase 1 work.</div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- HEALTH SCORE -->
+<section>
+  <div class="section-label">Account Health</div>
+  <div class="section-title">Health Score: 48/100 → Projected 72+</div>
+  <div class="section-sub">Scored across 6 dimensions. The low score reflects fixable implementation errors, not a broken strategy.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <div class="health-block">
+      <div class="section-label" style="margin-bottom:0.5rem;">Before Today's Fixes</div>
+      <div class="health-score-display"><div class="health-num">48</div><div class="health-denom">/100</div></div>
+      <div class="health-label">Grade: F (fixable structural errors)</div>
+      <div class="health-bars">
+        <div class="hbar-row"><div class="hbar-name">Conversion Tracking</div><div class="hbar-track"><div class="hbar-fill blue" data-width="62"></div></div><div class="hbar-score">62</div></div>
+        <div class="hbar-row"><div class="hbar-name">Wasted Spend</div><div class="hbar-track"><div class="hbar-fill amber" data-width="42"></div></div><div class="hbar-score">42</div></div>
+        <div class="hbar-row"><div class="hbar-name">Account Structure</div><div class="hbar-track"><div class="hbar-fill amber" data-width="52"></div></div><div class="hbar-score">52</div></div>
+        <div class="hbar-row"><div class="hbar-name">Keywords</div><div class="hbar-track"><div class="hbar-fill red" data-width="38"></div></div><div class="hbar-score">38</div></div>
+        <div class="hbar-row"><div class="hbar-name">Ads (Creative)</div><div class="hbar-track"><div class="hbar-fill red" data-width="35"></div></div><div class="hbar-score">35</div></div>
+        <div class="hbar-row"><div class="hbar-name">Settings</div><div class="hbar-track"><div class="hbar-fill amber" data-width="52"></div></div><div class="hbar-score">52</div></div>
+      </div>
+    </div>
+    <div class="health-block" style="border-color:var(--green);background:var(--green-glow);">
+      <div class="section-label" style="margin-bottom:0.5rem;color:var(--green);">Projected After All Fixes</div>
+      <div class="health-score-display"><div class="health-num" style="color:var(--green);">72+</div><div class="health-denom">/100</div></div>
+      <div class="health-label">Grade: C → B (with GHL landing page fixes)</div>
+      <div class="health-bars">
+        <div class="hbar-row"><div class="hbar-name">Conversion Tracking</div><div class="hbar-track"><div class="hbar-fill blue" data-width="72"></div></div><div class="hbar-score">72</div></div>
+        <div class="hbar-row"><div class="hbar-name">Wasted Spend</div><div class="hbar-track"><div class="hbar-fill green" data-width="78"></div></div><div class="hbar-score">78</div></div>
+        <div class="hbar-row"><div class="hbar-name">Account Structure</div><div class="hbar-track"><div class="hbar-fill blue" data-width="72"></div></div><div class="hbar-score">72</div></div>
+        <div class="hbar-row"><div class="hbar-name">Keywords</div><div class="hbar-track"><div class="hbar-fill blue" data-width="68"></div></div><div class="hbar-score">68</div></div>
+        <div class="hbar-row"><div class="hbar-name">Ads (Creative)</div><div class="hbar-track"><div class="hbar-fill green" data-width="70"></div></div><div class="hbar-score">70</div></div>
+        <div class="hbar-row"><div class="hbar-name">Settings</div><div class="hbar-track"><div class="hbar-fill blue" data-width="68"></div></div><div class="hbar-score">68</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- FIXED TODAY -->
+<section id="fixed">
+  <div class="section-label">Fixed Today — May 27, 2026</div>
+  <div class="section-title">7 Changes Made Live in the Account</div>
+  <div class="section-sub">Every change below is live in Google Ads as of today. QS recovery begins within 5–7 days.</div>
+
+  <div class="fixes-list">
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">Near Me RSA — H1 Pin Swapped</div>
+        <div class="fix-desc">"Long Island Window Tinting" → "Window Tinting Near You" (pinned H1). H2 unpinned to give Google 2 free positions. This is the root cause fix for all 5 "low quality" keyword flags.</div>
+        <div><span class="fix-tag">Search · Near Me</span><span class="fix-tag">QS Fix</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">Near Me RSA — 2 Redundant Headlines Replaced</div>
+        <div class="fix-desc">Removed "XPEL Authorized Installer" (duplicate of pinned H2) and "40 Years Serving Long Island" (duplicate of "40+ Years · XPEL Authorized"). Added "84 Five-Star Google Reviews" + "Book a Free Estimate Today" — both policy-compliant.</div>
+        <div><span class="fix-tag">Search · Near Me</span><span class="fix-tag">Ad Strength</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">Local RSA — H2 Unpinned, 2 Redundant Headlines Replaced</div>
+        <div class="fix-desc">Unpinned "40+ Years · XPEL Authorized" from H2. Replaced same two redundant headlines with the social proof + CTA pair. Now only 1 pin (H1) = Google has 2 free positions to optimize.</div>
+        <div><span class="fix-tag">Search · Local</span><span class="fix-tag">Ad Strength</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">PMax — 3 Weak Headlines Replaced</div>
+        <div class="fix-desc">"Affordable Window Tinting" → "XPEL Authorized · Long Island" | "High Quality Products" → "Free Estimates · Call Today" | "Long Island's Best" → "84 Five-Star Google Reviews". Removed unsubstantiated and vague claims.</div>
+        <div><span class="fix-tag">PMax</span><span class="fix-tag">Asset Quality</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">PMax — Real Photos Selected (20/20 Image Slots)</div>
+        <div class="fix-desc">20 real photos of actual jobs (trucks, SUVs, tinted doors from the shop) selected. 5 irrelevant stock images identified for replacement when next shoot provides better alternatives: wheel/rim, pink rhombus, yellow checkered, generic hands-on-glass, and XPEL logo (trademark risk).</div>
+        <div><span class="fix-tag">PMax</span><span class="fix-tag">Real Assets</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">Confirmed: Both Phone Numbers Answered by Jerry</div>
+        <div class="fix-desc">(516) 460-9996 (GHL/call asset line) and (516) 496-8800 (main business line) — both answered by Jerry directly. Call routing concern resolved. Both numbers can be used as call assets.</div>
+        <div><span class="fix-tag">Settings</span><span class="fix-tag">Resolved</span></div>
+      </div>
+    </div>
+    <div class="fix-item">
+      <div class="fix-check">✓</div>
+      <div>
+        <div class="fix-title">Policy Violations Identified and Fixed</div>
+        <div class="fix-desc">Google flagged 2 initially recommended headlines: phone number in ad text (★ symbol in "4.8★") and phone number format. Both corrected before saving — "84 Five-Star Google Reviews" and "Book a Free Estimate Today" are fully policy-compliant.</div>
+        <div><span class="fix-tag">Compliance</span><span class="fix-tag">Resolved</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- BEFORE/AFTER -->
+<section id="results">
+  <div class="section-label">Performance</div>
+  <div class="section-title">Before & After — Phase 1 + Phase 2</div>
+  <div class="section-sub">Phase 1 completed May 12. Phase 2 completed May 14. Today's Phase 2.1 fixes will show impact in 7–14 days.</div>
+
+  <div class="ba-grid">
+    <div class="ba-card before">
+      <h3>⚠ Before Phase 1 (Apr 9 – May 8)</h3>
+      <div class="metric-row"><div class="metric-label">Monthly Conversions</div><div class="metric-val bad">16</div></div>
+      <div class="metric-row"><div class="metric-label">Cost Per Conversion</div><div class="metric-val bad">$41.38</div></div>
+      <div class="metric-row"><div class="metric-label">Monthly Spend</div><div class="metric-val neutral">$662</div></div>
+      <div class="metric-row"><div class="metric-label">Active Campaigns</div><div class="metric-val neutral">3</div></div>
+      <div class="metric-row"><div class="metric-label">Worst Campaign CPA</div><div class="metric-val bad">$72.93</div></div>
+      <div class="metric-row"><div class="metric-label">PMax Budget</div><div class="metric-val bad">$10/day</div></div>
+      <div class="metric-row"><div class="metric-label">Negative Keywords</div><div class="metric-val bad">Minimal</div></div>
+      <div class="metric-row"><div class="metric-label">QS Status</div><div class="metric-val bad">All low / rarely served</div></div>
+    </div>
+    <div class="ba-card after">
+      <h3>✅ After Phases 1 + 2 (May 27)</h3>
+      <div class="metric-row">
+        <div class="metric-label">Monthly Conversions</div>
+        <div style="display:flex;align-items:center;gap:8px;"><div class="metric-val good">22</div><div class="delta up">+38%</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-label">Cost Per Conversion</div>
+        <div style="display:flex;align-items:center;gap:8px;"><div class="metric-val good">$35.91</div><div class="delta up">-13%</div></div>
+      </div>
+      <div class="metric-row"><div class="metric-label">Monthly Spend</div><div class="metric-val good">$500 (normalized)</div></div>
+      <div class="metric-row"><div class="metric-label">Active Campaigns</div><div class="metric-val good">2 (cleaned up)</div></div>
+      <div class="metric-row"><div class="metric-label">Worst Campaign CPA</div><div class="metric-val good">$55.38 (improving)</div></div>
+      <div class="metric-row"><div class="metric-label">PMax Budget</div><div class="metric-val good">$15/day (+50%)</div></div>
+      <div class="metric-row"><div class="metric-label">Negative Keywords</div><div class="metric-val good">944+ terms active</div></div>
+      <div class="metric-row"><div class="metric-label">QS Status</div><div class="metric-val good">Recovery in progress</div></div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- COMPETITOR -->
+<section id="competitor">
+  <div class="section-label">Competitive Intelligence</div>
+  <div class="section-title">You vs. Tinting Motors</div>
+  <div class="section-sub">They're your #1 competitor in Farmingdale (Nassau County — same market). Here's the real picture.</div>
+
+  <div class="comp-compare">
+    <div class="comp-card jerry">
+      <div class="comp-name jerry">NY Window Tinting (Jerry)</div>
+      <div class="comp-row"><div class="comp-key">Google Reviews</div><div class="comp-val lose">84 · 4.8★</div></div>
+      <div class="comp-row"><div class="comp-key">Years in Business</div><div class="comp-val win">40+ Years ✓</div></div>
+      <div class="comp-row"><div class="comp-key">Services</div><div class="comp-val win">Auto + Home + Commercial</div></div>
+      <div class="comp-row"><div class="comp-key">Location Advantage</div><div class="comp-val win">Plainview (central to both counties)</div></div>
+      <div class="comp-row"><div class="comp-key">Est. Ad Spend/Mo</div><div class="comp-val neutral">$500</div></div>
+      <div class="comp-row"><div class="comp-key">Blog Content</div><div class="comp-val win">11 posts</div></div>
+      <div class="comp-row"><div class="comp-key">GBP Posts</div><div class="comp-val neutral">Starting now</div></div>
+      <div class="comp-row"><div class="comp-key">Site Last Updated</div><div class="comp-val win">Oct 2024</div></div>
+    </div>
+    <div class="vs-badge">VS</div>
+    <div class="comp-card">
+      <div class="comp-name tm">Tinting Motors (Farmingdale)</div>
+      <div class="comp-row"><div class="comp-key">Google Reviews</div><div class="comp-val win">769 · 4.9★</div></div>
+      <div class="comp-row"><div class="comp-key">Years in Business</div><div class="comp-val lose">Newer</div></div>
+      <div class="comp-row"><div class="comp-key">Services</div><div class="comp-val neutral">Auto-focused</div></div>
+      <div class="comp-row"><div class="comp-key">Location Advantage</div><div class="comp-val neutral">Farmingdale (less central)</div></div>
+      <div class="comp-row"><div class="comp-key">Est. Ad Spend/Mo</div><div class="comp-val lose">$1,000–$1,500</div></div>
+      <div class="comp-row"><div class="comp-key">Blog Content</div><div class="comp-val lose">None</div></div>
+      <div class="comp-row"><div class="comp-key">GBP Posts</div><div class="comp-val lose">None visible</div></div>
+      <div class="comp-row"><div class="comp-key">Site Last Updated</div><div class="comp-val lose">Dec 2023 (frozen)</div></div>
+    </div>
+  </div>
+
+  <div style="margin-top:2rem;padding:1.5rem 2rem;background:var(--card);border:1px solid var(--border);border-radius:14px;border-left:3px solid var(--blue);">
+    <div style="font-weight:700;margin-bottom:0.5rem;">The Strategic Reality</div>
+    <div style="font-size:0.875rem;color:var(--muted);line-height:1.7;">Tinting Motors is outspending us 2–3× on ads and has 9× more reviews. We can't win on budget or review volume overnight. But they own "same-day" and we own "40+ years + XPEL + residential coverage" — angles they can't replicate. And critically: <strong style="color:var(--text);">their website has been frozen since December 2023. Their GBP is dead. They have no blog.</strong> The organic race is wide open for whoever moves first.</div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- WHAT'S NEXT -->
+<section id="next">
+  <div class="section-label">The Opportunity</div>
+  <div class="section-title">Where the Next 35–40 Leads/Month Come From</div>
+  <div class="section-sub">Three specific levers that will get us from 22 to 35–40 conversions/month within 90 days.</div>
+
+  <div class="opp-grid">
+    <div class="opp-card">
+      <div class="opp-number">01</div>
+      <div class="opp-title">QS Recovery → Scale Search Budget</div>
+      <div class="opp-body">Today's RSA fixes initiate Quality Score recovery. In 2–3 weeks when Near Me and Local reach QS 7+, we scale Search from $1.67/day → $5–7/day. Historical data shows "tint shop near me" converts at $6.32 CPA. More of that = more leads at lower cost.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-number">02</div>
+      <div class="opp-title">PMax Budget Increase → More Volume</div>
+      <div class="opp-body">PMax is Limited by Budget daily. At $38.36 CPA, adding $10/day ($300/month) projects +8 conversions/month from PMax alone. We need Jerry's sign-off to increase monthly spend from $500 to $600–650, or we reallocate as Search scales up.</div>
+    </div>
+    <div class="opp-card">
+      <div class="opp-number">03</div>
+      <div class="opp-title">Launch Brand Campaign + Fix Landing Page</div>
+      <div class="opp-body">No brand campaign = competitors can bid on "tint motors" and "NYC tint" terms. A brand campaign at $5/day ($150/month) protects this at near-zero CPA. And fixing the landing page (H1s, reviews display) directly improves Google's landing page experience score — which improves QS on all Search campaigns.</div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- PENDING FROM JERRY -->
+<section>
+  <div class="section-label">Action Required</div>
+  <div class="section-title">3 Things Needed from Jerry</div>
+  <div class="section-sub">These are blocking specific improvements. No urgency pressure — but here's what each one unlocks.</div>
+
+  <div class="pending-grid">
+    <div class="pending-card">
+      <div class="pending-num">01</div>
+      <div class="pending-title">GoHighLevel Access</div>
+      <div class="pending-desc">Unlocks: Fix 11 H1 tags on landing page, verify reviews widget, remove "if you qualify" language. All three directly improve Google's landing page experience score → better QS → lower CPC.</div>
+    </div>
+    <div class="pending-card">
+      <div class="pending-title" style="margin-top:0.5rem;">02</div>
+      <div class="pending-title">Form Language Approval</div>
+      <div class="pending-desc">The landing page says "we'll reach out if you qualify." Every car qualifies for window tinting. This phrase causes form abandonment. Need approval to remove it and replace with "We'll reach out within 24 hours with your free quote."</div>
+    </div>
+    <div class="pending-card">
+      <div class="pending-num">03</div>
+      <div class="pending-title">On-Site Content Shoot</div>
+      <div class="pending-desc">Unlocks: Replace last 5 stock/irrelevant images in PMax, upload video assets to PMax (accesses YouTube/Shorts placements), and produces the 3 Instagram/Facebook Reels already briefed and ready to edit.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Ready to See the Full 6-Month Plan?</h2>
+  <p>The strategy document covers campaign architecture, budget roadmap, creative production, KPI targets, and everything needed from both sides to hit 35–40 leads/month.</p>
+  <a href="workplan.html" class="btn-primary">View Full Strategy & Work Plan →</a>
+  <a href="mailto:cenovatemarketing@gmail.com" class="btn-secondary">Questions? Email Danny</a>
+</div>
+
+<footer>
+  Prepared by Cenovate Marketing · Danny · May 27, 2026 · For: Jerry Cicio, NY Window Tinting Auto Home Business Inc.
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate health bars
+        const fills = entry.target.querySelectorAll('.hbar-fill');
+        fills.forEach(fill => {
+          const w = fill.getAttribute('data-width');
+          if (w) setTimeout(() => { fill.style.width = w + '%'; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.finding-card, .fix-item, .opp-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.health-block').forEach(el => observer.observe(el));
+
+  // Stagger delays
+  document.querySelectorAll('.finding-card').forEach((el, i) => el.style.transitionDelay = (i * 0.08) + 's');
+  document.querySelectorAll('.opp-card').forEach((el, i) => el.style.transitionDelay = (i * 0.12) + 's');
+  document.querySelectorAll('.fix-item').forEach((el, i) => el.style.transitionDelay = (i * 0.06) + 's');
+</script>
+</body>
+</html>

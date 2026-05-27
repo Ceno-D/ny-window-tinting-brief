@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>6-Month Growth Plan — NY Window Tinting</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07090f;
+    --bg2: #0d1117;
+    --card: #111827;
+    --card2: #1a2235;
+    --border: #1f2d45;
+    --blue: #3b82f6;
+    --blue-glow: rgba(59,130,246,0.15);
+    --green: #10b981;
+    --green-glow: rgba(16,185,129,0.12);
+    --amber: #f59e0b;
+    --amber-glow: rgba(245,158,11,0.12);
+    --red: #ef4444;
+    --red-glow: rgba(239,68,68,0.12);
+    --purple: #8b5cf6;
+    --purple-glow: rgba(139,92,246,0.12);
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --subtle: #475569;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(7,9,15,0.9); backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand { font-weight: 700; font-size: 0.95rem; color: var(--text); display: flex; align-items: center; gap: 10px; }
+  .nav-brand .dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-back { background: transparent; color: var(--muted); padding: 8px 20px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid var(--border); transition: all 0.2s; }
+  .nav-back:hover { color: var(--text); border-color: var(--blue); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 2rem 80px;
+    max-width: 1100px; margin: 0 auto;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--blue-glow); border: 1px solid rgba(59,130,246,0.3);
+    padding: 6px 16px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 600; color: var(--blue);
+    margin-bottom: 2rem; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900;
+    line-height: 1.1; margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero h1 span { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1.1rem; color: var(--muted); max-width: 620px; margin: 0 auto 2rem; }
+  .hero-meta { font-size: 0.8rem; color: var(--subtle); }
+
+  /* PROJECT DETAILS BAR */
+  .details-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); border-radius: 16px;
+    overflow: hidden; max-width: 900px; margin: 0 auto 5rem;
+  }
+  .detail-cell { background: var(--card); padding: 1.75rem 1.5rem; text-align: center; }
+  .detail-label { font-size: 0.72rem; font-weight: 700; color: var(--subtle); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .detail-value { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+  .detail-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+
+  /* SECTIONS */
+  section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-label { font-size: 0.75rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 1rem; }
+  .section-sub { font-size: 1rem; color: var(--muted); max-width: 660px; margin-bottom: 3rem; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 1rem 0; }
+
+  /* DELIVERABLE ACCORDION */
+  .deliverable-list { display: flex; flex-direction: column; gap: 1rem; }
+  .deliverable-item {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; overflow: hidden;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s;
+  }
+  .deliverable-item.visible { opacity: 1; transform: translateY(0); }
+  .deliverable-item.open { border-color: var(--blue); }
+  .deliverable-header {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 1.5rem 1.75rem; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .deliverable-header:hover { background: var(--card2); }
+  .deliverable-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .deliverable-meta { flex: 1; }
+  .deliverable-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .deliverable-desc { font-size: 0.83rem; color: var(--muted); }
+  .deliverable-badge {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; padding: 4px 12px; border-radius: 100px;
+    white-space: nowrap; flex-shrink: 0;
+  }
+  .badge-active { background: var(--green-glow); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+  .badge-month1 { background: var(--blue-glow); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+  .badge-month2 { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
+  .badge-month3 { background: var(--amber-glow); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+  .badge-month4 { background: var(--red-glow); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+  .deliverable-chevron { color: var(--muted); font-size: 1rem; transition: transform 0.3s; flex-shrink: 0; }
+  .deliverable-item.open .deliverable-chevron { transform: rotate(180deg); }
+  .deliverable-body {
+    display: none; padding: 0 1.75rem 1.75rem;
+    border-top: 1px solid var(--border);
+  }
+  .deliverable-item.open .deliverable-body { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding-top: 1.75rem; }
+  .db-detail h4 { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .db-detail ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .db-detail li { font-size: 0.85rem; color: var(--muted); padding-left: 1.25rem; position: relative; }
+  .db-detail li::before { content: '→'; position: absolute; left: 0; color: var(--blue); }
+  .db-diagram {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem; font-size: 0.78rem;
+  }
+  .db-diagram h4 { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; }
+  .flow-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .flow-box {
+    padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; font-weight: 600;
+    white-space: nowrap;
+  }
+  .flow-box.b { background: var(--blue-glow); color: var(--blue); border: 1px solid rgba(59,130,246,0.2); }
+  .flow-box.g { background: var(--green-glow); color: var(--green); border: 1px solid rgba(16,185,129,0.2); }
+  .flow-box.a { background: var(--amber-glow); color: var(--amber); border: 1px solid rgba(245,158,11,0.2); }
+  .flow-box.p { background: var(--purple-glow); color: var(--purple); border: 1px solid rgba(139,92,246,0.2); }
+  .flow-box.dark { background: var(--card2); color: var(--muted); border: 1px solid var(--border); }
+  .flow-arrow { color: var(--subtle); font-size: 0.7rem; }
+  .metric-mini { display: flex; justify-content: space-between; padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.78rem; }
+  .metric-mini:last-child { border-bottom: none; }
+  .metric-mini-label { color: var(--muted); }
+  .metric-mini-val { font-weight: 700; color: var(--text); }
+  .metric-mini-val.g { color: var(--green); }
+  .metric-mini-val.a { color: var(--amber); }
+  .metric-mini-val.b { color: var(--blue); }
+
+  /* ARCHITECTURE MAP */
+  .arch-map {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 2rem;
+  }
+  .arch-account { text-align: center; margin-bottom: 2rem; }
+  .arch-account-box {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--blue-glow); border: 2px solid var(--blue);
+    border-radius: 12px; padding: 10px 24px;
+    font-weight: 700; font-size: 0.95rem; color: var(--blue);
+  }
+  .arch-campaigns { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .arch-campaign {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .arch-campaign:hover { border-color: var(--blue); }
+  .arch-campaign.active { border-color: rgba(16,185,129,0.5); }
+  .arch-campaign.paused { opacity: 0.6; }
+  .arch-campaign.future { border-style: dashed; opacity: 0.5; }
+  .arch-camp-status {
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 5px;
+  }
+  .status-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .status-dot.active { background: var(--green); }
+  .status-dot.paused { background: var(--amber); }
+  .status-dot.future { background: var(--subtle); }
+  .arch-camp-name { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .arch-camp-budget { font-size: 0.75rem; color: var(--blue); font-weight: 600; margin-bottom: 0.75rem; }
+  .arch-adgroups { display: flex; flex-direction: column; gap: 0.4rem; }
+  .arch-adgroup {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 6px; padding: 4px 10px;
+    font-size: 0.7rem; color: var(--muted); font-weight: 500;
+  }
+  .arch-connector {
+    display: flex; justify-content: center; margin-bottom: 1rem;
+    color: var(--subtle); font-size: 1.2rem;
+  }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 24px; top: 0; bottom: 0;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 50px 1fr;
+    gap: 1.5rem; padding-bottom: 2.5rem; position: relative;
+    opacity: 0; transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .timeline-item.visible { opacity: 1; transform: translateX(0); }
+  .timeline-dot {
+    width: 50px; height: 50px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 0.8rem; flex-shrink: 0;
+    border: 2px solid; position: relative; z-index: 1;
+    background: var(--bg);
+  }
+  .timeline-dot.m1 { border-color: var(--blue); color: var(--blue); }
+  .timeline-dot.m2 { border-color: var(--purple); color: var(--purple); }
+  .timeline-dot.m3 { border-color: var(--green); color: var(--green); }
+  .timeline-dot.m4 { border-color: var(--amber); color: var(--amber); }
+  .timeline-dot.m5 { border-color: #f97316; color: #f97316; }
+  .timeline-dot.m6 { border-color: var(--red); color: var(--red); }
+  .timeline-content {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem; margin-top: 0;
+  }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+  .tl-title { font-size: 1rem; font-weight: 800; }
+  .tl-budget { font-size: 0.85rem; font-weight: 700; color: var(--green); }
+  .tl-date { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .tl-theme { font-size: 0.8rem; color: var(--blue); font-weight: 600; margin-bottom: 0.75rem; }
+  .tl-actions { display: flex; flex-direction: column; gap: 0.4rem; }
+  .tl-action { font-size: 0.8rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; }
+  .tl-action::before { content: '·'; color: var(--blue); flex-shrink: 0; font-size: 1rem; line-height: 1.4; }
+  .tl-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 1rem; }
+  .tl-kpi { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem; text-align: center; }
+  .tl-kpi-val { font-size: 0.9rem; font-weight: 800; color: var(--green); }
+  .tl-kpi-label { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+
+  /* BUDGET TABLE */
+  .budget-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .budget-table th {
+    padding: 0.75rem 1rem; text-align: left;
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); border-bottom: 2px solid var(--border);
+  }
+  .budget-table td {
+    padding: 0.85rem 1rem; border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .budget-table tr:last-child td { border-bottom: none; }
+  .budget-table tr:hover td { background: var(--card2); }
+  .budget-table .month-col { font-weight: 700; }
+  .budget-table .total-col { font-weight: 800; color: var(--text); }
+  .budget-table .note-col { font-size: 0.75rem; color: var(--muted); }
+  .budget-table .approved { color: var(--green); }
+  .budget-table .pending { color: var(--amber); }
+  td.active { color: var(--blue); font-weight: 600; }
+  td.zero { color: var(--subtle); }
+  .budget-wrapper { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .budget-wrapper table { width: 100%; }
+
+  /* DELIVERABLES NEEDED FROM JERRY */
+  .from-jerry-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .jerry-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.5rem;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .jerry-card.visible { opacity: 1; transform: translateY(0); }
+  .jerry-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .jerry-icon { font-size: 1.4rem; }
+  .jerry-title { font-weight: 700; font-size: 0.95rem; }
+  .jerry-body { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.75rem; }
+  .jerry-deadline { font-size: 0.75rem; }
+  .jerry-deadline span { font-weight: 700; }
+  .deadline-urgent { color: var(--red); }
+  .deadline-soon { color: var(--amber); }
+  .deadline-later { color: var(--green); }
+  .jerry-unlocks {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: 8px; padding: 0.75rem;
+    font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem;
+  }
+  .jerry-unlocks strong { color: var(--blue); display: block; margin-bottom: 0.3rem; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; }
+
+  /* PRICING */
+  .pricing-block {
+    background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+    border: 2px solid var(--blue); border-radius: 20px;
+    padding: 3rem; text-align: center; max-width: 780px; margin: 0 auto;
+  }
+  .pricing-eyebrow { font-size: 0.78rem; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .pricing-amount { font-size: 3.5rem; font-weight: 900; color: var(--text); margin-bottom: 0.5rem; }
+  .pricing-amount span { font-size: 1.5rem; color: var(--muted); font-weight: 400; }
+  .pricing-note { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; }
+  .pricing-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+  .pricing-line {
+    background: rgba(0,0,0,0.25); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1rem;
+  }
+  .pricing-line-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.4rem; }
+  .pricing-line-val { font-size: 1rem; font-weight: 800; color: var(--text); }
+  .pricing-cta { margin-top: 1rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--blue); color: white; padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1rem; transition: transform 0.2s, opacity 0.2s; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--muted); padding: 14px 32px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 1px solid var(--border); margin-left: 1rem; transition: color 0.2s, border-color 0.2s; }
+  .btn-secondary:hover { color: var(--text); border-color: var(--blue); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--subtle); font-size: 0.8rem; }
+
+  /* KPI TABLE */
+  .kpi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .kpi-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 1.5rem;
+  }
+  .kpi-card-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .kpi-row { display: flex; justify-content: space-between; align-items: center; padding: 0.45rem 0; border-bottom: 1px solid rgba(31,45,69,0.6); font-size: 0.82rem; }
+  .kpi-row:last-child { border-bottom: none; }
+  .kpi-label { color: var(--muted); }
+  .kpi-val { font-weight: 700; }
+  .kpi-val.g { color: var(--green); }
+  .kpi-val.b { color: var(--blue); }
+  .kpi-val.a { color: var(--amber); }
+  .kpi-val.text { color: var(--text); }
+
+  /* PILL */
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pill.green { background: rgba(16,185,129,0.15); color: #10b981; }
+  .pill.blue { background: rgba(59,130,246,0.15); color: #3b82f6; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .details-bar { grid-template-columns: repeat(2, 1fr); }
+    .arch-campaigns { grid-template-columns: repeat(2, 1fr); }
+    .deliverable-item.open .deliverable-body { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: 1fr; }
+    .from-jerry-grid { grid-template-columns: 1fr; }
+    .pricing-breakdown { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .details-bar { grid-template-columns: 1fr 1fr; }
+    .tl-kpis { grid-template-columns: 1fr 1fr; }
+    .arch-campaigns { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="dot"></div>
+    NY Window Tinting · 6-Month Strategy
+  </div>
+  <div class="nav-links">
+    <a href="#deliverables">Deliverables</a>
+    <a href="#architecture">Architecture</a>
+    <a href="#timeline">Roadmap</a>
+    <a href="#budget">Budget</a>
+    <a href="#from-jerry">Action Items</a>
+  </div>
+  <a href="index.html" class="nav-back">← Back to Audit</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">📋 Full Strategy & Work Plan</div>
+  <h1>The 6-Month Plan to<br><span>Own Long Island Tinting</span></h1>
+  <p>Every deliverable, every campaign, every dollar — mapped out through November 2026 with measurable KPI checkpoints at each milestone.</p>
+  <div class="hero-meta">Prepared by Cenovate Marketing · Danny · For: Jerry Cicio, NY Window Tinting · May 27, 2026</div>
+</div>
+
+<!-- PROJECT DETAILS -->
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+  <div class="details-bar">
+    <div class="detail-cell">
+      <div class="detail-label">Client</div>
+      <div class="detail-value">Jerry Cicio</div>
+      <div class="detail-sub">NY Window Tinting Auto Home Business</div>
+    </div>
+    <div class="detail-cell">
+      <div class="detail-label">Monthly Retainer</div>
+      <div class="detail-value">$1,300/mo</div>
+      <div class="detail-sub">Management + Content + GBP</div>
+    </div>
+    <div class="detail-cell">
+      <div class="detail-label">Ad Budget (Active)</div>
+      <div class="detail-value">$500/mo</div>
+      <div class="detail-sub">→ Scaling to $900–1,000 by M6</div>
+    </div>
+    <div class="detail-cell">
+      <div class="detail-label">Target by Month 3</div>
+      <div class="detail-value">35–40</div>
+      <div class="detail-sub">Leads/month (from 22 now)</div>
+    </div>
+  </div>
+</div>
+
+<!-- DELIVERABLES ACCORDION -->
+<section id="deliverables">
+  <div class="section-label">What We're Building</div>
+  <div class="section-title">Every Deliverable — Click to See the Details</div>
+  <div class="section-sub">All deliverables included in the $1,300/month retainer unless otherwise noted. Paid media spend is separate.</div>
+
+  <div class="deliverable-list">
+
+    <!-- Google Ads Management -->
+    <div class="deliverable-item" data-index="0">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">📊</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Google Ads Management</div>
+          <div class="deliverable-desc">Full account ownership — campaigns, bidding, copy, negatives, reporting. Active now.</div>
+        </div>
+        <div class="deliverable-badge badge-active">Live Now</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>What's Included</h4>
+          <ul>
+            <li>Weekly account monitoring + optimization</li>
+            <li>Search campaign QS recovery (2–3 week window)</li>
+            <li>PMax asset management + image/video uploads</li>
+            <li>Monthly negative keyword audit (Search Terms Report)</li>
+            <li>Bid strategy adjustments per conversion volume thresholds</li>
+            <li>Brand campaign launch (DG | Brand — by June 1)</li>
+            <li>Monthly performance report with CPA, CVR, lead count</li>
+            <li>New campaign builds as budget milestones are hit</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Active Campaign Stack</h4>
+          <div class="flow-row"><div class="flow-box b">tint motors (PMax)</div><div class="flow-arrow">→</div><div class="flow-box g">$15/day · 11 conv/mo</div></div>
+          <div class="flow-row"><div class="flow-box b">Search: Near Me</div><div class="flow-arrow">→</div><div class="flow-box a">QS recovering · target $30 CPA</div></div>
+          <div class="flow-row"><div class="flow-box b">Search: Local</div><div class="flow-arrow">→</div><div class="flow-box g">28.57% CVR · near target CPA</div></div>
+          <div class="flow-row"><div class="flow-box dark">Brand (coming)</div><div class="flow-arrow">→</div><div class="flow-box dark">Protect brand · $5/day</div></div>
+          <div style="margin-top:1rem;">
+            <div class="metric-mini"><span class="metric-mini-label">Baseline CPA</span><span class="metric-mini-val a">$35.91</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">30-day target</span><span class="metric-mini-val g">$28–32</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">90-day target</span><span class="metric-mini-val g">35–40 leads/mo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weekly Content Shoots -->
+    <div class="deliverable-item" data-index="1">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">🎬</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Weekly On-Site Content Shoots</div>
+          <div class="deliverable-desc">Danny at the shop every week — capturing real jobs, real product, real people for Reels and PMax assets.</div>
+        </div>
+        <div class="deliverable-badge badge-month1">Month 1</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>What We Capture</h4>
+          <ul>
+            <li>In-progress tint installation (time-lapse potential)</li>
+            <li>Before/after of completed job (highest engagement format)</li>
+            <li>Product close-ups — film, tools, vehicle detail</li>
+            <li>Jerry on camera (trust-building, 40-year story)</li>
+            <li>Shop exterior and workspace (local legitimacy)</li>
+            <li>Still frames for PMax image assets (landscape + square + portrait)</li>
+            <li>Short clips for Instagram Reels + Facebook Reels</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Content → Distribution Pipeline</h4>
+          <div class="flow-row"><div class="flow-box b">On-Site Shoot</div><div class="flow-arrow">→</div><div class="flow-box dark">Raw Footage</div></div>
+          <div class="flow-row" style="margin-left:1rem"><div class="flow-arrow">↓</div></div>
+          <div class="flow-row"><div class="flow-box g">CapCut Edit</div><div class="flow-arrow">→</div><div class="flow-box g">Instagram Reel</div></div>
+          <div class="flow-row"><div class="flow-box g">CapCut Edit</div><div class="flow-arrow">→</div><div class="flow-box g">Facebook Reel</div></div>
+          <div class="flow-row"><div class="flow-box a">Still Frames</div><div class="flow-arrow">→</div><div class="flow-box a">PMax Image Assets</div></div>
+          <div class="flow-row"><div class="flow-box p">Video Clips</div><div class="flow-arrow">→</div><div class="flow-box p">PMax Video Assets (Month 2)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IG + FB Reels -->
+    <div class="deliverable-item" data-index="2">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">📱</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Instagram & Facebook Reels (4+4/month)</div>
+          <div class="deliverable-desc">4 Reels on @nycwindowtint and 4 on Facebook monthly — scripted, edited, captioned, scheduled.</div>
+        </div>
+        <div class="deliverable-badge badge-active">Live Now</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>Current Reel Pipeline</h4>
+          <ul>
+            <li>Reel A: PPF luxury (Red Tesla + Corvette Higgsfield clips) — "Protect What You Love"</li>
+            <li>Reel B: Chrome delete transformation — before/after hook</li>
+            <li>Reel C: Durability/trust — "Still Looks New" narrative</li>
+            <li>Posting: 3 PM slot (highest reach — 513 views on best post) or 9–9:47 AM (highest engagement)</li>
+            <li>Best days: Tuesday + Wednesday for weekday posts</li>
+            <li>Captions written from Copy Posse hooks + CTA framework</li>
+            <li>IG: max 5 hashtags · FB: no hashtags in body</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Reel Content Pillars</h4>
+          <div class="flow-row"><div class="flow-box g">Before/After</div><div class="flow-arrow">→</div><div class="flow-box dark">Hook → Reveal → CTA</div></div>
+          <div class="flow-row"><div class="flow-box b">The Process</div><div class="flow-arrow">→</div><div class="flow-box dark">Time-lapse install · 15s</div></div>
+          <div class="flow-row"><div class="flow-box a">Education</div><div class="flow-arrow">→</div><div class="flow-box dark">NY tint laws · myths · tips</div></div>
+          <div class="flow-row"><div class="flow-box p">Jerry's Story</div><div class="flow-arrow">→</div><div class="flow-box dark">40-year trust narrative</div></div>
+          <div class="flow-row"><div class="flow-box g">Residential</div><div class="flow-arrow">→</div><div class="flow-box dark">Home heat/AC savings angle</div></div>
+          <div style="margin-top:1rem;">
+            <div class="metric-mini"><span class="metric-mini-label">Post frequency</span><span class="metric-mini-val b">8 Reels/month</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Top post reach</span><span class="metric-mini-val g">513 views</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Optimal time</span><span class="metric-mini-val text">3:00 PM or 9–9:47 AM</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GBP Optimization -->
+    <div class="deliverable-item" data-index="3">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">📍</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Google Business Profile — Full Optimization</div>
+          <div class="deliverable-desc">Services cleanup, Q&A build, weekly posts, geo-tagging, and the review generation system.</div>
+        </div>
+        <div class="deliverable-badge badge-month1">Month 1</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>GBP Tasks</h4>
+          <ul>
+            <li>Clean up services list — remove keyword dumps, fix formatting</li>
+            <li>Build 5–6 pre-answered Q&A pairs (target long-tail queries)</li>
+            <li>Weekly GBP posts (photo + text geo-tagged to Plainview, NY)</li>
+            <li>Photo uploads (minimum 20 new from weekly shoots)</li>
+            <li>Review response — reply to all existing 84 reviews in correct tone</li>
+            <li>Generate Google Review short link → save as "ggrev" on Jerry's phone</li>
+            <li>Review acquisition: personalized AI-written SMS within 24hrs of each job</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Review Generation Flow</h4>
+          <div class="flow-row"><div class="flow-box g">Job Complete</div><div class="flow-arrow">→</div><div class="flow-box b">Jerry sends: name · phone · vehicle</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box a">AI Writes SMS</div><div class="flow-arrow">→</div><div class="flow-box dark">Personalized within 24hrs</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box g">Customer Reviews</div><div class="flow-arrow">→</div><div class="flow-box g">GBP ranking improves</div></div>
+          <div style="margin-top:1rem;">
+            <div class="metric-mini"><span class="metric-mini-label">Current reviews</span><span class="metric-mini-val a">84 · 4.8★</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Month 6 target</span><span class="metric-mini-val g">150+</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Competitor (TM)</span><span class="metric-mini-val text">769 · 4.9★</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Landing Page Fixes -->
+    <div class="deliverable-item" data-index="4">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">🌐</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Landing Page Optimization (GHL)</div>
+          <div class="deliverable-desc">Fix H1 structure, reviews display, form copy, and page speed — all directly affecting Quality Score.</div>
+        </div>
+        <div class="deliverable-badge badge-month1">Awaiting GHL Access</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>Specific Fixes Queued</h4>
+          <ul>
+            <li>Fix 11 H1 tags → correct heading hierarchy (1 H1, clear H2 structure)</li>
+            <li>Reviews widget: fix "See What Customers Say" section (currently empty — 84 reviews not pulling)</li>
+            <li>Remove "if you qualify" form language → replace with "We'll reach out in 24 hours"</li>
+            <li>Add residential-specific H1 variant for residential campaign (Month 3)</li>
+            <li>Add PPF/ceramic H1 variant (Month 4)</li>
+            <li>Verify phone click tracking is firing correctly</li>
+            <li>Install Facebook Pixel for Meta retargeting (Month 2)</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Landing Page Impact Chain</h4>
+          <div class="flow-row"><div class="flow-box g">Fix H1 + Reviews</div><div class="flow-arrow">→</div><div class="flow-box b">LP Experience Score ↑</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box b">Quality Score ↑</div><div class="flow-arrow">→</div><div class="flow-box g">CPC decreases</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box g">Lower CPAs</div><div class="flow-arrow">→</div><div class="flow-box g">More leads · same budget</div></div>
+          <div style="margin-top:1rem;">
+            <div class="metric-mini"><span class="metric-mini-label">H1 tags currently</span><span class="metric-mini-val a">11 (critical issue)</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Reviews visible on page</span><span class="metric-mini-val a">0 of 84</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Requires</span><span class="metric-mini-val text">Jerry → GHL access</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Residential + Commercial Campaign -->
+    <div class="deliverable-item" data-index="5">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">🏠</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Residential & Commercial Ad Campaign</div>
+          <div class="deliverable-desc">Capture the vertical Tinting Motors doesn't even touch — home and office window film. No competition.</div>
+        </div>
+        <div class="deliverable-badge badge-month3">Month 3</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>What We're Building</h4>
+          <ul>
+            <li>Reactivate DG | Res/Comm | Leads at $5/day (test budget)</li>
+            <li>Ad group: Home Window Film — residential intent keywords</li>
+            <li>Ad group: Residential Near Me — proximity queries for home tinting</li>
+            <li>Residential H1 variant on GHL landing page (required before launch)</li>
+            <li>Bidding: Maximize Conversions (no TCPA until 10+ conv/month)</li>
+            <li>TCPA at $50 in Month 4 (residential justifies slightly higher CPA)</li>
+            <li>Target: 5–8 residential conversions/month by end of Month 3</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Competitive Landscape — Residential</h4>
+          <div class="flow-row"><div class="flow-box g">Jerry</div><div class="flow-arrow">→</div><div class="flow-box g">Full residential + commercial capacity</div></div>
+          <div class="flow-row"><div class="flow-box a">Tinting Motors</div><div class="flow-arrow">→</div><div class="flow-box dark">Auto-only · cannot compete</div></div>
+          <div class="flow-row"><div class="flow-box dark">Other competitors</div><div class="flow-arrow">→</div><div class="flow-box dark">Limited residential presence</div></div>
+          <div style="margin-top:1rem; padding:0.75rem; background:rgba(16,185,129,0.08); border-radius:8px; border:1px solid rgba(16,185,129,0.2);">
+            <div style="font-size:0.78rem; color:var(--green); font-weight:700;">Strategic advantage: uncontested territory</div>
+            <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Residential and commercial window film is a vertical Tinting Motors cannot claim. Jerry wins by default when the campaign is live.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PPF & Ceramic Campaign -->
+    <div class="deliverable-item" data-index="6">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">🛡️</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">PPF & Ceramic Coating Campaign</div>
+          <div class="deliverable-desc">Reactivate the high-ticket vertical — $800–2,000 avg ticket, XPEL authorized differentiator.</div>
+        </div>
+        <div class="deliverable-badge badge-month4">Month 4</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>Campaign Details</h4>
+          <ul>
+            <li>Reactivate DG | Ceramic & PPF | BM Only — reduced to $2.67/day test</li>
+            <li>Build PPF-specific landing page before reactivating (GHL)</li>
+            <li>TCPA target $75 (high ticket = higher CPA acceptable)</li>
+            <li>Jerry is XPEL Authorized — lean hard into this credential in ad copy</li>
+            <li>Target: 5–8 PPF/ceramic conversions/month at $800+ avg ticket</li>
+            <li>Note: DG | PPF & Ceramic | Leads_PMEM ($35/day set) also available — audit for overlap before reactivating</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Revenue Impact Projection</h4>
+          <div class="metric-mini"><span class="metric-mini-label">PPF avg ticket</span><span class="metric-mini-val g">$800–2,000</span></div>
+          <div class="metric-mini"><span class="metric-mini-label">Window tint avg ticket</span><span class="metric-mini-val b">$150–400</span></div>
+          <div class="metric-mini"><span class="metric-mini-label">TCPA (PPF/ceramic)</span><span class="metric-mini-val a">$75 target</span></div>
+          <div class="metric-mini"><span class="metric-mini-label">ROAS at $800 avg ticket</span><span class="metric-mini-val g">10.7x</span></div>
+          <div class="metric-mini"><span class="metric-mini-label">Goal (Month 4+)</span><span class="metric-mini-val g">5–8 PPF leads/mo</span></div>
+          <div style="margin-top:1rem; padding:0.75rem; background:rgba(59,130,246,0.08); border-radius:8px; border:1px solid rgba(59,130,246,0.2);">
+            <div style="font-size:0.75rem; color:var(--muted);">5 PPF conversions/month × $800 avg = $4,000 in revenue from $375 ad spend. ROAS: 10.7x</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meta Paid -->
+    <div class="deliverable-item" data-index="7">
+      <div class="deliverable-header" onclick="toggleDeliverable(this)">
+        <div class="deliverable-icon">📲</div>
+        <div class="deliverable-meta">
+          <div class="deliverable-title">Meta Paid Advertising (Facebook + Instagram)</div>
+          <div class="deliverable-desc">Reels-first paid campaigns targeting Long Island homeowners + auto enthusiasts within 15 miles.</div>
+        </div>
+        <div class="deliverable-badge badge-month2">Month 2</div>
+        <div class="deliverable-chevron">▼</div>
+      </div>
+      <div class="deliverable-body">
+        <div class="db-detail">
+          <h4>Campaign Strategy</h4>
+          <ul>
+            <li>Objective: Lead generation (Meta Lead Form or LP Click)</li>
+            <li>Audience: 15-mile radius Plainview · Ages 25–60 · Homeowner interest + auto enthusiasts</li>
+            <li>Creative: Before/after Reels, shop video, job footage (already in production)</li>
+            <li>Start at $50/month — learning phase, no optimization pressure</li>
+            <li>Retargeting: Website visitors who didn't convert (requires Facebook Pixel on GHL)</li>
+            <li>Month 2 goal: First CPL data. Not optimizing yet.</li>
+            <li>Scale to $100–150/month in Month 3–4 if CPL is under $60</li>
+          </ul>
+        </div>
+        <div class="db-diagram">
+          <h4>Meta Funnel</h4>
+          <div class="flow-row"><div class="flow-box p">Awareness Reels</div><div class="flow-arrow">→</div><div class="flow-box dark">Profile visit · Saves</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box b">Consideration Ads</div><div class="flow-arrow">→</div><div class="flow-box dark">LP click · Watch time</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box g">Lead Form</div><div class="flow-arrow">→</div><div class="flow-box g">Jerry gets contact</div></div>
+          <div class="flow-row"><div class="flow-arrow" style="margin-left:1rem">↓</div></div>
+          <div class="flow-row"><div class="flow-box a">Retargeting</div><div class="flow-arrow">→</div><div class="flow-box a">Re-engage non-converts</div></div>
+          <div style="margin-top:1rem;">
+            <div class="metric-mini"><span class="metric-mini-label">Month 2 budget</span><span class="metric-mini-val b">$35–50</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Target CPL</span><span class="metric-mini-val text">Under $60</span></div>
+            <div class="metric-mini"><span class="metric-mini-label">Month 6 target</span><span class="metric-mini-val g">8–12 leads/mo</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- ARCHITECTURE MAP -->
+<section id="architecture">
+  <div class="section-label">Campaign Architecture</div>
+  <div class="section-title">Full Account Structure — Now Through Month 6</div>
+  <div class="section-sub">Green = active now. Gold = paused, staged for reactivation. Dashed = future builds.</div>
+
+  <div class="arch-map">
+    <div class="arch-account">
+      <div class="arch-account-box">🏪 NYC Window Tint · Google Ads Account</div>
+    </div>
+    <div class="arch-connector">│</div>
+    <div class="arch-campaigns">
+
+      <div class="arch-campaign active">
+        <div class="arch-camp-status"><div class="status-dot active"></div><span style="color:var(--green)">Active Now</span></div>
+        <div class="arch-camp-name">tint motors (PMax)</div>
+        <div class="arch-camp-budget">$15/day · $450/mo</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">Asset Group: [main]</div>
+          <div class="arch-adgroup">Maximize Conversions</div>
+          <div class="arch-adgroup">13 search themes</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign active">
+        <div class="arch-camp-status"><div class="status-dot active"></div><span style="color:var(--green)">Active Now</span></div>
+        <div class="arch-camp-name">DG | Window Tinting | Leads</div>
+        <div class="arch-camp-budget">$4/day · $120/mo (M1 target)</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">Near Me (QS recovering)</div>
+          <div class="arch-adgroup">Local (28.57% CVR)</div>
+          <div class="arch-adgroup">Maximize Conversions → M1</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign" style="border-color:rgba(59,130,246,0.4);">
+        <div class="arch-camp-status"><div class="status-dot" style="background:var(--blue)"></div><span style="color:var(--blue)">Building — Week 1</span></div>
+        <div class="arch-camp-name">Brand | NY Window Tinting</div>
+        <div class="arch-camp-budget">$0.65–1/day · $20/mo</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">[ny window tinting]</div>
+          <div class="arch-adgroup">[window tinting plainview ny]</div>
+          <div class="arch-adgroup">Target Impression Share 90%</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign paused">
+        <div class="arch-camp-status"><div class="status-dot paused"></div><span style="color:var(--amber)">Paused · Month 3</span></div>
+        <div class="arch-camp-name">DG | Res/Comm | Leads</div>
+        <div class="arch-camp-budget">$5/day start → $7/day M4</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">Home Window Film</div>
+          <div class="arch-adgroup">Residential Near Me</div>
+          <div class="arch-adgroup">Gate: LP ready + $650 budget</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign paused">
+        <div class="arch-camp-status"><div class="status-dot paused"></div><span style="color:var(--amber)">Paused · Month 4</span></div>
+        <div class="arch-camp-name">DG | Ceramic & PPF | BM Only</div>
+        <div class="arch-camp-budget">$2.67/day test → $5/day M5</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">XPEL PPF · Ceramic Coating</div>
+          <div class="arch-adgroup">TCPA $75 (high ticket)</div>
+          <div class="arch-adgroup">Gate: PPF LP live</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign future">
+        <div class="arch-camp-status"><div class="status-dot future"></div><span style="color:var(--subtle)">Month 2–3</span></div>
+        <div class="arch-camp-name">META | Auto + Home Tinting</div>
+        <div class="arch-camp-budget">$50/mo start → $150 M6</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">Reels-first creative</div>
+          <div class="arch-adgroup">15mi radius · Plainview</div>
+          <div class="arch-adgroup">Meta Lead Form objective</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign future">
+        <div class="arch-camp-status"><div class="status-dot future"></div><span style="color:var(--subtle)">Month 2–3</span></div>
+        <div class="arch-camp-name">Google LSA</div>
+        <div class="arch-camp-budget">Pay-per-lead · ~$100/mo M5+</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">Google Guaranteed badge</div>
+          <div class="arch-adgroup">Appears above all Google Ads</div>
+          <div class="arch-adgroup">Research eligibility by June 10</div>
+        </div>
+      </div>
+
+      <div class="arch-campaign future">
+        <div class="arch-camp-status"><div class="status-dot future"></div><span style="color:var(--subtle)">Month 6</span></div>
+        <div class="arch-camp-name">YouTube Pre-Roll</div>
+        <div class="arch-camp-budget">$50–100/mo</div>
+        <div class="arch-adgroups">
+          <div class="arch-adgroup">LI auto/home improvement viewers</div>
+          <div class="arch-adgroup">In-stream skippable</div>
+          <div class="arch-adgroup">Gate: video content ready</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-label">Month-by-Month Roadmap</div>
+  <div class="section-title">May 27 → November 26, 2026</div>
+  <div class="section-sub">Each month has a theme, specific deliverables, and measurable KPI targets. Performance gates control when we scale.</div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot m1">M1</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 1: Stabilize + Quick Wins</div>
+            <div class="tl-date">May 27 – June 26, 2026</div>
+          </div>
+          <div class="tl-budget">$500/mo ad spend</div>
+        </div>
+        <div class="tl-theme">Theme: Lock in Phase 2.1 gains, fix bidding, protect brand, stop waste</div>
+        <div class="tl-actions">
+          <div class="tl-action">Switch Search from Target CPA → Maximize Conversions (remove TCPA constraint)</div>
+          <div class="tl-action">Reallocate budget: PMax $15 → $12/day · Search $1.67 → $4/day</div>
+          <div class="tl-action">Launch Brand | NY Window Tinting campaign (by June 1)</div>
+          <div class="tl-action">Add "tinting motors" brand terms to account-level negative list</div>
+          <div class="tl-action">Pause `car window tinting near me` keyword (BM, 0 conv, $36.28 spent)</div>
+          <div class="tl-action">June 10 checkpoint: Near Me QS score check (14 days post H1 fix)</div>
+          <div class="tl-action">Email Jerry: GHL access request with specific task list</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">24–27</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">$32–38</div><div class="tl-kpi-label">CPA target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">≥6/10</div><div class="tl-kpi-label">Near Me QS (June 10)</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot m2">M2</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 2: Grow + Add Channels</div>
+            <div class="tl-date">June 27 – July 26, 2026</div>
+          </div>
+          <div class="tl-budget">$575/mo* (if approved)</div>
+        </div>
+        <div class="tl-theme">Theme: Search volume building; launch Meta paid; QS recovery visible</div>
+        <div class="tl-actions">
+          <div class="tl-action">Evaluate adding TCPA $45 to Search if 18+ conv/month reached</div>
+          <div class="tl-action">Review Near Me QS — if under 6/10, diagnose LP alignment issue</div>
+          <div class="tl-action">Audit PMax asset performance — suppress under-3-star rated assets</div>
+          <div class="tl-action">Launch Meta Reels paid campaign ($35/month first test)</div>
+          <div class="tl-action">Pull search term report — new negative keywords from Month 1 data</div>
+          <div class="tl-action">Add residential keyword testers (phrase match) to Search campaign</div>
+          <div class="tl-action">Research Google LSA eligibility for window tinting in NY</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">26–32</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">$28–36</div><div class="tl-kpi-label">CPA target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">Live</div><div class="tl-kpi-label">Meta first data</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot m3">M3</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 3: Scale + Vertical Expansion</div>
+            <div class="tl-date">July 27 – August 26, 2026</div>
+          </div>
+          <div class="tl-budget">$650/mo* (requires approval)</div>
+        </div>
+        <div class="tl-theme">Theme: Hit 35–40 conv/month target; launch residential vertical</div>
+        <div class="tl-actions">
+          <div class="tl-action">Present Jerry with Month 2 data + $150/mo budget increase case (June 26)</div>
+          <div class="tl-action">Reactivate DG | Res/Comm | Leads at $5/day (lower than old $10/day to rebuild QS)</div>
+          <div class="tl-action">Add residential H1 to GHL landing page (requires GHL access)</div>
+          <div class="tl-action">Set Search TCPA at $42 if monthly Search conv ≥ 25</div>
+          <div class="tl-action">Apply for Google Local Services Ads (LSA) — appears above all standard ads</div>
+          <div class="tl-action">Content shoot: dedicated residential + PPF before/after footage</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">35–40</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">$28–32</div><div class="tl-kpi-label">CPA target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">5–8</div><div class="tl-kpi-label">Residential leads</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot m4">M4</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 4: High-Ticket + LSA Goes Live</div>
+            <div class="tl-date">August 27 – September 26, 2026</div>
+          </div>
+          <div class="tl-budget">$900/mo* (requires approval)</div>
+        </div>
+        <div class="tl-theme">Theme: PPF/ceramic vertical; LSA live; Meta optimization</div>
+        <div class="tl-actions">
+          <div class="tl-action">Reactivate DG | Ceramic & PPF at $2.67/day test budget</div>
+          <div class="tl-action">Build PPF-specific landing page on GHL before campaign goes live</div>
+          <div class="tl-action">LSA active — optimize for lead response time (Google tracks speed)</div>
+          <div class="tl-action">Meta: Optimize Reels campaign based on M2–M3 learning; test lead form vs LP click</div>
+          <div class="tl-action">Tighten Search TCPA to $40 if volume sustains 25+ conv/month</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">40–50</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">5–10</div><div class="tl-kpi-label">LSA leads/month</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">3–5</div><div class="tl-kpi-label">Meta leads/month</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot m5">M5</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 5: Optimize + Defend</div>
+            <div class="tl-date">September 27 – October 26, 2026</div>
+          </div>
+          <div class="tl-budget">$950/mo</div>
+        </div>
+        <div class="tl-theme">Theme: Efficiency optimization; competitive defense; QS at mature levels</div>
+        <div class="tl-actions">
+          <div class="tl-action">Comprehensive QS audit — target avg 7+/10 across all campaigns</div>
+          <div class="tl-action">Check if Tinting Motors is bidding on Jerry's brand terms (Auction Insights)</div>
+          <div class="tl-action">PPF/Ceramic campaign assessment — CPA at target? ROAS justified?</div>
+          <div class="tl-action">Landing page A/B test — headline variations on GHL</div>
+          <div class="tl-action">YouTube channel setup for Jerry — prep Month 6 YouTube ad launch</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">45–55</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">$26–30</div><div class="tl-kpi-label">Avg CPA target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">7+/10</div><div class="tl-kpi-label">Avg Quality Score</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot m6">M6</div>
+      <div class="timeline-content">
+        <div class="tl-header">
+          <div>
+            <div class="tl-title">Month 6: Full Platform Activation</div>
+            <div class="tl-date">October 27 – November 26, 2026</div>
+          </div>
+          <div class="tl-budget">$1,000–1,100/mo</div>
+        </div>
+        <div class="tl-theme">Theme: Multi-channel presence; YouTube ads; approaching competitive parity with Tinting Motors</div>
+        <div class="tl-actions">
+          <div class="tl-action">Launch YouTube pre-roll ads targeting Long Island auto/home improvement viewers</div>
+          <div class="tl-action">Full PPF/Ceramic campaign at scale (if M4–M5 data supports)</div>
+          <div class="tl-action">Commercial tinting campaign launch (separate from residential)</div>
+          <div class="tl-action">6-month performance review with Jerry — ROI case for Year 2 budget</div>
+        </div>
+        <div class="tl-kpis">
+          <div class="tl-kpi"><div class="tl-kpi-val">55–70</div><div class="tl-kpi-label">Conv/month target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">$22–28</div><div class="tl-kpi-label">Blended CPA target</div></div>
+          <div class="tl-kpi"><div class="tl-kpi-val">150+</div><div class="tl-kpi-label">Google reviews</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- BUDGET TABLE -->
+<section id="budget">
+  <div class="section-label">Budget Plan</div>
+  <div class="section-title">Monthly Ad Spend Breakdown</div>
+  <div class="section-sub">All increases above $500/month require Jerry's explicit approval before execution. Scale gates: CPA must be at or below $35 to proceed.</div>
+
+  <div class="budget-wrapper">
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Search</th>
+          <th>PMax</th>
+          <th>Brand</th>
+          <th>Res/Comm</th>
+          <th>PPF/Ceramic</th>
+          <th>Meta</th>
+          <th>LSA</th>
+          <th>Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="month-col">M1 (May 27–Jun 26)</td>
+          <td class="active">$120</td>
+          <td class="active">$360</td>
+          <td class="active">$20</td>
+          <td class="zero">—</td>
+          <td class="zero">—</td>
+          <td class="zero">—</td>
+          <td class="zero">—</td>
+          <td class="total-col">$500</td>
+          <td class="note-col approved">✓ Approved</td>
+        </tr>
+        <tr>
+          <td class="month-col">M2 (Jun 27–Jul 26)</td>
+          <td>$150</td>
+          <td>$360</td>
+          <td>$30</td>
+          <td class="zero">—</td>
+          <td class="zero">—</td>
+          <td>$35</td>
+          <td class="zero">—</td>
+          <td class="total-col">$575*</td>
+          <td class="note-col pending">⚠ Needs approval</td>
+        </tr>
+        <tr>
+          <td class="month-col">M3 (Jul 27–Aug 26)</td>
+          <td>$195</td>
+          <td>$390</td>
+          <td>$30</td>
+          <td>$35</td>
+          <td class="zero">—</td>
+          <td>$50</td>
+          <td class="zero">—</td>
+          <td class="total-col">$700*</td>
+          <td class="note-col pending">⚠ Needs approval</td>
+        </tr>
+        <tr>
+          <td class="month-col">M4 (Aug 27–Sep 26)</td>
+          <td>$210</td>
+          <td>$420</td>
+          <td>$30</td>
+          <td>$60</td>
+          <td>$80</td>
+          <td>$100</td>
+          <td class="zero">—</td>
+          <td class="total-col">$900*</td>
+          <td class="note-col pending">⚠ Needs approval</td>
+        </tr>
+        <tr>
+          <td class="month-col">M5 (Sep 27–Oct 26)</td>
+          <td>$210</td>
+          <td>$420</td>
+          <td>$30</td>
+          <td>$60</td>
+          <td>$80</td>
+          <td>$100</td>
+          <td>$50</td>
+          <td class="total-col">$950*</td>
+          <td class="note-col pending">⚠ Needs approval</td>
+        </tr>
+        <tr>
+          <td class="month-col">M6 (Oct 27–Nov 26)</td>
+          <td>$240</td>
+          <td>$450</td>
+          <td>$30</td>
+          <td>$60</td>
+          <td>$100</td>
+          <td>$150</td>
+          <td>$100</td>
+          <td class="total-col">$1,130*</td>
+          <td class="note-col pending">⚠ Needs approval</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="margin-top:1rem;padding:1rem 1.25rem;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:0.82rem;color:var(--muted);">
+    <strong style="color:var(--amber);">Scale gate rule:</strong> Before increasing budget in any month, the previous month must show CPA at or below $35. If CPA exceeds $40 two months in a row, pause expansion and diagnose before scaling.
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- KPI TARGETS -->
+<section>
+  <div class="section-label">Success Metrics</div>
+  <div class="section-title">KPI Targets at Each Milestone</div>
+  <div class="section-sub">Measured at end of each phase. These aren't arbitrary — they're based on actual account performance and industry benchmarks for local service Google Ads.</div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-card-title">📍 Now (Baseline — May 27)</div>
+      <div class="kpi-row"><span class="kpi-label">Monthly Conversions</span><span class="kpi-val a">22</span></div>
+      <div class="kpi-row"><span class="kpi-label">Blended CPA</span><span class="kpi-val a">$35.91</span></div>
+      <div class="kpi-row"><span class="kpi-label">PMax CPA</span><span class="kpi-val a">$38.36</span></div>
+      <div class="kpi-row"><span class="kpi-label">Search CPA</span><span class="kpi-val a">$33.48</span></div>
+      <div class="kpi-row"><span class="kpi-label">Local CVR</span><span class="kpi-val g">28.57%</span></div>
+      <div class="kpi-row"><span class="kpi-label">Near Me QS</span><span class="kpi-val text">Recovering (post-fix)</span></div>
+      <div class="kpi-row"><span class="kpi-label">GBP Reviews</span><span class="kpi-val a">84 · 4.8★</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card-title">📈 Month 3 Target (August 26)</div>
+      <div class="kpi-row"><span class="kpi-label">Monthly Conversions</span><span class="kpi-val g">35–40</span></div>
+      <div class="kpi-row"><span class="kpi-label">Blended CPA</span><span class="kpi-val g">$28–32</span></div>
+      <div class="kpi-row"><span class="kpi-label">Search Conv/month</span><span class="kpi-val g">20–25</span></div>
+      <div class="kpi-row"><span class="kpi-label">Residential leads</span><span class="kpi-val b">5–8 (new vertical)</span></div>
+      <div class="kpi-row"><span class="kpi-label">Brand CPA</span><span class="kpi-val g">≤$12</span></div>
+      <div class="kpi-row"><span class="kpi-label">Near Me QS</span><span class="kpi-val g">≥7/10</span></div>
+      <div class="kpi-row"><span class="kpi-label">GBP Reviews</span><span class="kpi-val g">100+</span></div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-card-title">🏆 Month 6 Target (November 26)</div>
+      <div class="kpi-row"><span class="kpi-label">Monthly Conversions</span><span class="kpi-val g">55–70</span></div>
+      <div class="kpi-row"><span class="kpi-label">Blended CPA</span><span class="kpi-val g">$22–28</span></div>
+      <div class="kpi-row"><span class="kpi-label">PPF/Ceramic leads</span><span class="kpi-val g">5–8/mo</span></div>
+      <div class="kpi-row"><span class="kpi-label">Meta leads</span><span class="kpi-val g">8–12/mo</span></div>
+      <div class="kpi-row"><span class="kpi-label">LSA leads</span><span class="kpi-val g">5–10/mo</span></div>
+      <div class="kpi-row"><span class="kpi-label">Avg Quality Score</span><span class="kpi-val g">≥7/10</span></div>
+      <div class="kpi-row"><span class="kpi-label">GBP Reviews</span><span class="kpi-val g">150+</span></div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- FROM JERRY -->
+<section id="from-jerry">
+  <div class="section-label">Action Required from Jerry</div>
+  <div class="section-title">5 Items That Unlock the Next Level</div>
+  <div class="section-sub">Everything on Danny's side is moving. These are the items that only Jerry can unblock — each one has a specific, quantified impact.</div>
+
+  <div class="from-jerry-grid">
+
+    <div class="jerry-card">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">🔑</div>
+        <div class="jerry-title">GoHighLevel (GHL) Landing Page Access</div>
+      </div>
+      <div class="jerry-body">Danny needs login access to the GHL account that hosts <em>windowtint.newyorkwindowtinting.com</em>. Three specific changes are queued: fix 11 H1 tags, enable the reviews widget showing 84 Google reviews, and remove the "if you qualify" form friction.</div>
+      <div class="jerry-deadline"><span class="deadline-urgent">⚡ Urgent</span> — Target: June 5</div>
+      <div class="jerry-unlocks">
+        <strong>Unlocks</strong>
+        Improved Google landing page experience score → better Quality Scores → lower CPCs on every Search campaign. Also enables residential campaign launch in Month 3.
+      </div>
+    </div>
+
+    <div class="jerry-card">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">✏️</div>
+        <div class="jerry-title">Form Language Approval</div>
+      </div>
+      <div class="jerry-body">The current form headline says "We'll reach out if you qualify." Every car qualifies for window tinting — this phrase creates false doubt and causes form abandonment. Danny needs approval to change it to: <em>"We'll reach out within 24 hours with your free quote."</em></div>
+      <div class="jerry-deadline"><span class="deadline-soon">📅 Soon</span> — Target: June 5</div>
+      <div class="jerry-unlocks">
+        <strong>Unlocks</strong>
+        Higher form submission rate from existing traffic. No additional ad spend required — conversion improvement from current click volume.
+      </div>
+    </div>
+
+    <div class="jerry-card">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">📸</div>
+        <div class="jerry-title">On-Site Content Shoot</div>
+      </div>
+      <div class="jerry-body">The next scheduled on-site visit — Danny needs to be at the shop to capture real installation footage for Reels and PMax video assets. Remote photos work for stills, but video of a live tint install (even 30 seconds of raw footage) unlocks YouTube/Shorts placements in PMax.</div>
+      <div class="jerry-deadline"><span class="deadline-soon">📅 Soon</span> — Target: June 15</div>
+      <div class="jerry-unlocks">
+        <strong>Unlocks</strong>
+        Video assets in PMax (currently $0/month in YouTube reach). 3 Instagram + Facebook Reels from single shoot. PMax ad strength: Average → Good/Excellent.
+      </div>
+    </div>
+
+    <div class="jerry-card">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">⭐</div>
+        <div class="jerry-title">Review Acquisition Program Buy-In</div>
+      </div>
+      <div class="jerry-body">After each job, Jerry sends Danny: customer name, phone number, service completed, vehicle. Danny writes a personalized AI-crafted SMS within 24 hours. Customer gets a review request that feels human, not automated. This is the fastest path to closing the 685-review gap vs. Tinting Motors.</div>
+      <div class="jerry-deadline"><span class="deadline-soon">📅 Soon</span> — Target: June 5</div>
+      <div class="jerry-unlocks">
+        <strong>Unlocks</strong>
+        GBP ranking improvement over time. More reviews → higher organic map pack position → free leads that don't cost ad spend.
+      </div>
+    </div>
+
+    <div class="jerry-card">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">💰</div>
+        <div class="jerry-title">Month 3 Budget Increase Approval ($150/mo)</div>
+      </div>
+      <div class="jerry-body">Danny will present Month 2 performance data on June 26. If CPA is at or below $35, the ask is a $150/month increase (from $500 to $650) to launch the residential campaign and scale Search. Jerry only needs to approve this if the data supports it — no obligation to commit now.</div>
+      <div class="jerry-deadline"><span class="deadline-later">📆 Later</span> — Decision date: June 26</div>
+      <div class="jerry-unlocks">
+        <strong>Unlocks</strong>
+        Residential tinting campaign — an entire revenue vertical that Tinting Motors cannot compete in. Projected 5–8 new leads/month from a currently unserved audience.
+      </div>
+    </div>
+
+    <div class="jerry-card" style="border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.04);">
+      <div class="jerry-card-header">
+        <div class="jerry-icon">✅</div>
+        <div class="jerry-title">What Jerry Has Already Provided</div>
+      </div>
+      <div class="jerry-body">For the record — Jerry has been an excellent partner. Everything needed for Phase 1 and Phase 2 has been in place from day one.</div>
+      <ul style="list-style:none;margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;">
+        <li style="font-size:0.83rem;color:var(--green);display:flex;gap:8px;"><span>✓</span><span>GBP Manager access — granted at first visit</span></li>
+        <li style="font-size:0.83rem;color:var(--green);display:flex;gap:8px;"><span>✓</span><span>Google Ads Manager access — granted at first visit</span></li>
+        <li style="font-size:0.83rem;color:var(--green);display:flex;gap:8px;"><span>✓</span><span>Meta Business Suite access — granted at first visit</span></li>
+        <li style="font-size:0.83rem;color:var(--green);display:flex;gap:8px;"><span>✓</span><span>Photo supply for PMax assets (remote, when on-site not possible)</span></li>
+        <li style="font-size:0.83rem;color:var(--green);display:flex;gap:8px;"><span>✓</span><span>Both phone numbers confirmed working</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;"><div class="divider"></div></div>
+
+<!-- PRICING -->
+<section>
+  <div class="section-label">The Agreement</div>
+  <div class="section-title">What You're Getting for $1,300/Month</div>
+  <div class="section-sub">Everything above is included. Ad spend is separate and goes directly to the platforms.</div>
+
+  <div class="pricing-block">
+    <div class="pricing-eyebrow">Monthly Retainer</div>
+    <div class="pricing-amount">$1,300<span>/month</span></div>
+    <div class="pricing-note">Management + Content + GBP · Ad spend billed separately through the platforms</div>
+
+    <div class="pricing-breakdown">
+      <div class="pricing-line">
+        <div class="pricing-line-label">Google Ads Management</div>
+        <div class="pricing-line-val">Full ownership</div>
+      </div>
+      <div class="pricing-line">
+        <div class="pricing-line-label">IG + FB Reels</div>
+        <div class="pricing-line-val">4 + 4 / month</div>
+      </div>
+      <div class="pricing-line">
+        <div class="pricing-line-label">GBP Optimization</div>
+        <div class="pricing-line-val">Posts · Q&A · Reviews</div>
+      </div>
+      <div class="pricing-line">
+        <div class="pricing-line-label">Weekly Shoot</div>
+        <div class="pricing-line-val">On-site every week</div>
+      </div>
+      <div class="pricing-line">
+        <div class="pricing-line-label">Monthly Reporting</div>
+        <div class="pricing-line-val">Performance + strategy</div>
+      </div>
+      <div class="pricing-line">
+        <div class="pricing-line-label">Review SMS System</div>
+        <div class="pricing-line-val">AI-personalized · 24hr</div>
+      </div>
+    </div>
+
+    <div style="background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:2rem;text-align:left;">
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.7;">
+        <strong style="color:var(--text);">Current financials:</strong> $700 deposit paid (May 2, 2026). $600 balance due May 30, 2026. Invoice #1 issued. The first month of ad management, schema fixes, GBP access setup, content briefing, and Phase 1+2 account rebuild is already underway.
+      </div>
+    </div>
+
+    <div class="pricing-cta">
+      <a href="mailto:cenovatemarketing@gmail.com?subject=NY Window Tinting - 6 Month Strategy&body=Hi Danny, I reviewed the plan. Let's talk about next steps." class="btn-primary">Ready to Move Forward? Email Danny →</a>
+      <a href="index.html" class="btn-secondary">← Back to Audit</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Prepared by Cenovate Marketing · Danny · cenovatemarketing@gmail.com · May 27, 2026<br>
+  For: Jerry Cicio, NY Window Tinting Auto Home Business Inc. · 121-24 Dupont St, Plainview, NY 11803
+</footer>
+
+<script>
+  // Accordion for deliverables
+  function toggleDeliverable(header) {
+    const item = header.closest('.deliverable-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.deliverable-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked if was closed
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Animate health bars inside (if any)
+        const fills = entry.target.querySelectorAll('.hbar-fill');
+        fills.forEach(fill => {
+          const w = fill.getAttribute('data-width');
+          if (w) setTimeout(() => { fill.style.width = w + '%'; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.deliverable-item, .timeline-item, .jerry-card').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.07) + 's';
+    observer.observe(el);
+  });
+
+  // Open first deliverable by default on load
+  window.addEventListener('load', () => {
+    const first = document.querySelector('.deliverable-item');
+    if (first) first.classList.add('open');
+  });
+</script>
+</body>
+</html>
