@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updated Growth Plan — NY Window Tinting · June 2026</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C87A;
+    --gold-dim: rgba(201,168,76,0.15);
+    --blue: #5EC8F0;
+    --blue-dim: rgba(94,200,240,0.12);
+    --green: #4CAF7A;
+    --green-dim: rgba(76,175,122,0.12);
+    --red: #E05555;
+    --bg: #090B11;
+    --bg-card: rgba(255,255,255,0.04);
+    --bg-card-hover: rgba(255,255,255,0.07);
+    --bg-elevated: rgba(255,255,255,0.06);
+    --border: rgba(255,255,255,0.08);
+    --border-gold: rgba(201,168,76,0.3);
+    --text: #F0F0F0;
+    --text-dim: rgba(240,240,240,0.55);
+    --text-muted: rgba(240,240,240,0.3);
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrap { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 20px 80px; }
+
+  /* ── HEADER ── */
+  .site-header {
+    padding: 32px 20px 0;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+
+  .header-meta .badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: var(--gold-dim);
+    color: var(--gold);
+    border: 1px solid var(--border-gold);
+  }
+
+  .header-meta .badge.blue {
+    background: var(--blue-dim);
+    color: var(--blue);
+    border-color: rgba(94,200,240,0.25);
+  }
+
+  .hero-block {
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--gold-dim);
+    display: block;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 72px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-title span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--text-dim);
+    max-width: 520px;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+
+  .hero-prepared {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .hero-prepared strong { color: var(--text-dim); font-weight: 500; }
+
+  /* ── STAT CARDS ── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+
+  @media (min-width: 600px) {
+    .stat-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .stat-card.blue::before { background: var(--blue); }
+  .stat-card.green::before { background: var(--green); }
+  .stat-card.red::before { background: var(--red); opacity: 0.5; }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .stat-delta {
+    font-size: 12px;
+    color: var(--green);
+    font-family: var(--font-mono);
+  }
+
+  .stat-delta.negative { color: var(--red); }
+  .stat-delta.neutral { color: var(--text-muted); }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(26px, 5vw, 38px);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+    color: var(--text-dim);
+    max-width: 620px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  /* ── ALERT CARD ── */
+  .alert-card {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  .alert-card .alert-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .alert-card .alert-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .alert-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .alert-card p + p { margin-top: 10px; }
+
+  .alert-card strong { color: var(--text); font-weight: 500; }
+
+  /* ── TWO-COL COMPARE ── */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  @media (min-width: 540px) {
+    .compare-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .compare-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .compare-card.highlight {
+    border-color: rgba(76,175,122,0.3);
+    background: rgba(76,175,122,0.05);
+  }
+
+  .compare-card .cc-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .compare-card .cc-label .cc-status {
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 100px;
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid rgba(76,175,122,0.25);
+  }
+
+  .compare-card .cc-status.warn {
+    background: var(--gold-dim);
+    color: var(--gold);
+    border-color: var(--border-gold);
+  }
+
+  .compare-card .cc-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  .cc-metric { margin-bottom: 10px; }
+  .cc-metric-label { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+  .cc-metric-value { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--text); }
+  .cc-metric-value.gold { color: var(--gold); }
+  .cc-metric-value.blue { color: var(--blue); }
+  .cc-metric-note { font-size: 11px; color: var(--text-muted); font-family: var(--font-mono); margin-top: 2px; }
+
+  /* ── PHASE CARDS ── */
+  .phase-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .phase-card.active { border-color: var(--border-gold); }
+
+  .phase-toggle {
+    width: 100%;
+    background: var(--bg-card);
+    border: none;
+    color: var(--text);
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-align: left;
+    transition: background 0.2s;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .phase-toggle:hover { background: var(--bg-card-hover); }
+
+  .phase-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    min-width: 24px;
+  }
+
+  .phase-toggle-title {
+    flex: 1;
+  }
+
+  .phase-toggle-title .pt-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .phase-toggle-title .pt-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .phase-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .phase-badge.now { background: rgba(76,175,122,0.15); color: var(--green); border: 1px solid rgba(76,175,122,0.3); }
+  .phase-badge.soon { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--border-gold); }
+  .phase-badge.future { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
+
+  .phase-chevron {
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+
+  .phase-card.open .phase-chevron { transform: rotate(180deg); }
+  .phase-card.open .phase-toggle { background: var(--bg-card-hover); }
+
+  .phase-body {
+    display: none;
+    padding: 0 20px 20px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+  }
+
+  .phase-card.open .phase-body { display: block; }
+
+  .phase-dates {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 14px 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .phase-items li {
+    font-size: 14px;
+    color: var(--text-dim);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .phase-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+
+  .phase-kpi-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    margin-top: 6px;
+  }
+
+  .phase-kpi {
+    font-size: 13px;
+  }
+
+  .phase-kpi .pk-val {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--gold);
+    line-height: 1.1;
+    display: block;
+  }
+
+  .phase-kpi .pk-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* ── PLATFORM ARCH ── */
+  .arch-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 480px) {
+    .arch-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  .arch-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .arch-card.live {
+    border-color: rgba(76,175,122,0.3);
+    background: rgba(76,175,122,0.04);
+  }
+
+  .arch-card.future-card {
+    border-style: dashed;
+    opacity: 0.75;
+  }
+
+  .arch-icon {
+    font-size: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .arch-info .ai-campaign {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.07em;
+    margin-bottom: 3px;
+  }
+
+  .arch-info .ai-service {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .arch-info .ai-url {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--blue);
+  }
+
+  .arch-info .ai-url.dim { color: var(--text-muted); }
+
+  .arch-info .ai-status {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 100px;
+    margin-top: 6px;
+  }
+
+  .ai-status.live { background: var(--green-dim); color: var(--green); border: 1px solid rgba(76,175,122,0.25); }
+  .ai-status.queued { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--border-gold); }
+
+  /* ── BUDGET TABLE ── */
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 560px;
+  }
+
+  thead tr {
+    background: rgba(201,168,76,0.08);
+    border-bottom: 1px solid var(--border-gold);
+  }
+
+  thead th {
+    padding: 12px 14px;
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover { background: var(--bg-card-hover); }
+
+  tbody tr.active-row { background: rgba(76,175,122,0.05); }
+
+  tbody td {
+    padding: 12px 14px;
+    color: var(--text-dim);
+    vertical-align: middle;
+  }
+
+  tbody td:first-child {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: var(--text);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  tbody td .dash { color: var(--text-muted); }
+
+  .total-cell {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--gold) !important;
+  }
+
+  .approval-cell {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 100px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .approval-cell.approved { background: var(--green-dim); color: var(--green); border: 1px solid rgba(76,175,122,0.3); }
+  .approval-cell.needs { background: var(--gold-dim); color: var(--gold); border: 1px solid var(--border-gold); }
+
+  .table-note {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* ── KPI TARGETS ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 600px) {
+    .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .kpi-col {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .kpi-col.current-col { border-color: rgba(94,200,240,0.2); background: var(--blue-dim); }
+  .kpi-col.m3-col { border-color: var(--border-gold); background: var(--gold-dim); }
+  .kpi-col.m6-col { border-color: rgba(76,175,122,0.25); background: var(--green-dim); }
+
+  .kpi-col-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .current-col .kpi-col-label { color: var(--blue); }
+  .m3-col .kpi-col-label { color: var(--gold); }
+  .m6-col .kpi-col-label { color: var(--green); }
+
+  .kpi-item { margin-bottom: 12px; }
+  .kpi-item:last-child { margin-bottom: 0; }
+
+  .kpi-item .ki-val {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .current-col .ki-val { color: var(--blue); }
+  .m3-col .ki-val { color: var(--gold); }
+  .m6-col .ki-val { color: var(--green); }
+
+  .kpi-item .ki-label { font-size: 12px; color: var(--text-muted); }
+
+  /* ── CHECKLIST ── */
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+
+  .checklist li .check-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: var(--green-dim);
+    border: 1px solid rgba(76,175,122,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--green);
+    margin-top: 1px;
+  }
+
+  /* ── ACTION ITEMS ── */
+  .action-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .action-card:hover {
+    border-color: var(--border-gold);
+    background: var(--bg-card-hover);
+  }
+
+  .action-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .action-body .ab-priority {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .action-body .ab-priority.urgent { color: var(--red); }
+  .action-body .ab-priority.soon { color: var(--gold); }
+  .action-body .ab-priority.later { color: var(--text-muted); }
+
+  .action-body .ab-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .action-body .ab-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  .action-body .ab-unlock {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: rgba(201,168,76,0.06);
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    color: var(--gold);
+    line-height: 1.55;
+  }
+
+  .action-body .ab-unlock strong { font-weight: 600; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 48px 0;
+  }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-info { font-size: 13px; color: var(--text-muted); }
+  .footer-info strong { color: var(--text-dim); font-weight: 500; }
+
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: #000;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .footer-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-block { animation: fadeUp 0.5s ease both; }
+  .stat-grid  { animation: fadeUp 0.5s 0.1s ease both; }
+
+  /* ── RESPONSIVE TWEAKS ── */
+  @media (max-width: 480px) {
+    .page-wrap { padding: 0 16px 60px; }
+    .site-header { padding: 24px 16px 0; }
+    .phase-toggle { padding: 14px 16px; }
+    .phase-body { padding: 0 16px 16px; }
+    .action-card { flex-direction: column; gap: 10px; }
+    .hero-title { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-meta">
+    <span class="badge">Cenovate Marketing</span>
+    <span class="badge blue">Updated · June 23, 2026</span>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <!-- HERO -->
+  <div class="hero-block">
+    <div class="hero-eyebrow">Google Ads Intelligence Report</div>
+    <h1 class="hero-title">NY Window<br><span>Tinting</span><br>Growth Plan</h1>
+    <p class="hero-sub">
+      An updated strategy for Jerry Cicio and NY Window Tinting — reflecting Phase 1–3 completion, the June agency transition, the new custom landing page, and a revised 6-phase roadmap through December 2026.
+    </p>
+    <div class="hero-prepared">
+      <div><strong>Prepared by</strong> Danny · Cenovate Marketing</div>
+      <div><strong>For</strong> Jerry Cicio, NY Window Tinting</div>
+      <div><strong>Date</strong> June 23, 2026</div>
+      <div><strong>Original plan</strong> May 27, 2026</div>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="stat-grid">
+    <div class="stat-card green">
+      <div class="stat-label">Monthly Conv.</div>
+      <div class="stat-value">30</div>
+      <div class="stat-delta">↑ +36% from baseline</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-label">Blended CPA</div>
+      <div class="stat-value">$25.81</div>
+      <div class="stat-delta">↓ −28% from $35.91</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">PMax CPA</div>
+      <div class="stat-value">$19.78</div>
+      <div class="stat-delta neutral">24 conversions</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="stat-label">Landing Page</div>
+      <div class="stat-value" style="font-size:20px;line-height:1.2;">LIVE</div>
+      <div class="stat-delta neutral">Since Jun 20</div>
+    </div>
+  </div>
+
+  <!-- WHAT HAPPENED -->
+  <section class="section">
+    <div class="section-label">The Situation</div>
+    <h2 class="section-title">What Happened<br>in June</h2>
+
+    <div class="alert-card">
+      <span class="alert-icon">⚠️</span>
+      <div class="alert-title">8-Day Data Gap — June 12–20, 2026</div>
+      <p>
+        In mid-June, the third-party platform (GoHighLevel) hosting the landing page was unexpectedly paused, leaving ad clicks with no destination for approximately <strong>8 days</strong>. During this window, ad spend continued but leads were not being captured. Any conversion data from June 12–20 is unreliable.
+      </p>
+      <p>
+        Rather than re-engage with the third-party dependency, a decision was made to build a <strong>purpose-built landing page from scratch</strong> — one designed specifically to align with the ad campaigns running. The new page launched June 20, 2026 and is live at <strong>windowtint.newyorkwindowtinting.com</strong>.
+      </p>
+      <p>
+        This was the right call. The old page had 11 H1 tags, no visible reviews widget, and was not built to convert paid ad traffic. The new page was designed around the exact keywords the campaigns target — headline copy, service descriptions, CTAs, and trust signals are all aligned to the running ads.
+      </p>
+    </div>
+
+    <div class="alert-card" style="background:rgba(76,175,122,0.05); border-color:rgba(76,175,122,0.25);">
+      <span class="alert-icon">✅</span>
+      <div class="alert-title" style="color:var(--green);">Clean Data Collection Starts Now</div>
+      <p>
+        As of June 23, all three major updates are live: <strong>new landing page</strong> (June 20), <strong>updated ad copy</strong> in the Near Me and Local ad groups (Phase 3 rewrite), and <strong>20 new negative keywords</strong> added today eliminating car washes, auto repair shops, and competitor brand searches. The data clock resets from here.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACCOMPLISHMENTS -->
+  <section class="section">
+    <div class="section-label">Phase 1–3 Complete</div>
+    <h2 class="section-title">What We've<br>Built</h2>
+    <p class="section-intro">Everything delivered since the engagement started May 27, 2026.</p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span>Full Google Ads account audit — identified $43+/mo in wasted spend, QS failures, zero geo-targeting, no sitelinks</li>
+      <li><span class="check-icon">✓</span>Campaign restructure — Near Me + Local ad groups with fresh RSA copy. "40+ Years · XPEL Authorized," "84 Five-Star Google Reviews," "Nassau & Suffolk County Tint" — creative QS now ABOVE_AVERAGE</li>
+      <li><span class="check-icon">✓</span>Geo-targeting added — Nassau County + Suffolk County + all 5 NYC boroughs (Presence only). Both campaigns were previously untargeted.</li>
+      <li><span class="check-icon">✓</span>5 sitelinks live on Search campaign — Get A Free Quote, Window Tinting Services, Paint Protection Film, About NY Window Tinting, Auto Detailing</li>
+      <li><span class="check-icon">✓</span>Conversion tracking cleaned — 6 dead/duplicate actions demoted to secondary. Single primary action: "Calls from ads (1)". Smart Bidding signal is clean.</li>
+      <li><span class="check-icon">✓</span>30+ negative keywords added across Search + PMax — three rounds including June 23 batch (car wash, detailing, body shop, repair, cheap, 24 hour, punjab, 189 auto tinting, and more)</li>
+      <li><span class="check-icon">✓</span>Policy issues resolved — GBP product names corrected from ALL CAPS to Title Case (capitalization flag cleared). 2 legacy "Auto Detailing" sitelinks traced as REMOVED — not serving, no action needed.</li>
+      <li><span class="check-icon">✓</span>15 parked domains 301-redirected to newyorkwindowtinting.com — consolidating domain authority</li>
+      <li><span class="check-icon">✓</span>Schema Pro fixes — longitude corrected, empty org name filled, areaServed type fixed, Instagram sameAs added</li>
+      <li><span class="check-icon">✓</span>New landing page — custom-built (Claude Code + Vercel + GitHub), Jerry-approved in person June 20. Premium dark design system. Aligned to running ad campaigns. Live now.</li>
+      <li><span class="check-icon">✓</span>Content — Tesla PPF reel, Ford F-350 vinyl wrap reel, Caliper Covers reel produced and posted. Reel production workflow systematized.</li>
+    </ul>
+  </section>
+
+  <!-- CURRENT PERFORMANCE -->
+  <section class="section">
+    <div class="section-label">Last 30 Days</div>
+    <h2 class="section-title">Performance<br>Right Now</h2>
+    <p class="section-intro">Note: this window includes the 8-day data gap (Jun 12–20). Clean data collection begins June 23. PMax numbers are reliable; Search data includes disrupted period.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card highlight">
+        <div class="cc-label">Campaign <span class="cc-status">Performing</span></div>
+        <div class="cc-name">PMax<br>Long Island</div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Conversions (30d)</div>
+          <div class="cc-metric-value gold">24</div>
+        </div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Cost per Conversion</div>
+          <div class="cc-metric-value gold">$19.78</div>
+        </div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Total Spend</div>
+          <div class="cc-metric-value" style="font-size:16px;color:var(--text-dim)">$474.79</div>
+        </div>
+        <div class="cc-metric-note">PMax is the lead engine. $19.78 CPA is exceptional for this market.</div>
+      </div>
+      <div class="compare-card">
+        <div class="cc-label">Campaign <span class="cc-status warn">Collecting Data</span></div>
+        <div class="cc-name">Search<br>Long Island</div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Conversions (30d)</div>
+          <div class="cc-metric-value blue">6</div>
+        </div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Cost per Conversion</div>
+          <div class="cc-metric-value blue">$49.91</div>
+        </div>
+        <div class="cc-metric">
+          <div class="cc-metric-label">Total Spend</div>
+          <div class="cc-metric-value" style="font-size:16px;color:var(--text-dim)">$299.46</div>
+        </div>
+        <div class="cc-metric-note">CPA elevated due to 8-day disruption. New page + new copy — give it 3–4 weeks for clean data.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- THE PLAN FORWARD -->
+  <section class="section">
+    <div class="section-label">June 2026 → December 2026</div>
+    <h2 class="section-title">The Updated<br>6-Phase Plan</h2>
+    <p class="section-intro">Revised roadmap from June 23. Each phase has a gate condition — we only move forward when the data supports it.</p>
+
+    <!-- Phase 1 -->
+    <div class="phase-card active open">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">01</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Jun 23 – Jul 14</div>
+          <div class="pt-name">Data Collection &amp; QS Recovery</div>
+        </div>
+        <span class="phase-badge now">Active Now</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Jun 23, 2026 → Jul 14, 2026 · 3 weeks · $775/mo ad spend</div>
+        <ul class="phase-items">
+          <li>Do not touch bids, budgets, or ad copy — let the new landing page collect clean conversion data</li>
+          <li>Monitor Search campaign QS weekly — creative quality is ABOVE_AVERAGE, post-click QS will update as Google evaluates the new page (expect improvement in 1–2 weeks)</li>
+          <li>Monitor search term report — watch for new irrelevant queries to add to negative list</li>
+          <li>PMax is performing well at $19.78 CPA — no changes needed</li>
+          <li>Get CallRail tracking number installed on landing page to capture call data properly</li>
+          <li>Continue content shoots and reel production</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">30+</span><span class="pk-label">Conv/month target</span></div>
+          <div class="phase-kpi"><span class="pk-val">&lt;$30</span><span class="pk-label">Blended CPA target</span></div>
+          <div class="phase-kpi"><span class="pk-val">≥5</span><span class="pk-label">Search QS target</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-card">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">02</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Jul 14 – Aug 11</div>
+          <div class="pt-name">Search Optimization &amp; Gap Keywords</div>
+        </div>
+        <span class="phase-badge soon">Up Next</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Jul 14, 2026 → Aug 11, 2026 · 4 weeks · ~$810/mo ad spend</div>
+        <ul class="phase-items">
+          <li>Add new Search ad group: "Window Tinting Services Near Me" — LOW competition (170/mo volume) pointing to current landing page</li>
+          <li>If Search QS has recovered to 5+/10 after clean data period, evaluate switching to tCPA at $40</li>
+          <li>Pull search term report — add second round of negatives from clean data</li>
+          <li>Audit PMax asset performance — suppress any under-3-star rated image/headline assets</li>
+          <li>Review Near Me and Local ad group performance — pause any non-converting keywords</li>
+          <li>Present Month 2 data to Jerry — if CPA is at or below $35, discuss Phase 3 budget</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">35+</span><span class="pk-label">Conv/month target</span></div>
+          <div class="phase-kpi"><span class="pk-val">≥6/10</span><span class="pk-label">Avg QS target</span></div>
+          <div class="phase-kpi"><span class="pk-val">$28–32</span><span class="pk-label">CPA target</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-card">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">03</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Aug 11 – Sep 8</div>
+          <div class="pt-name">Residential &amp; Commercial Campaign</div>
+        </div>
+        <span class="phase-badge future">Gated on CPA ≤ $35</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Aug 11, 2026 → Sep 8, 2026 · 4 weeks · ~$960/mo* requires approval</div>
+        <ul class="phase-items">
+          <li>Reactivate residential/commercial campaign at $5/day test budget — this is a vertical Tinting Motors cannot compete in</li>
+          <li>Current landing page handles both auto and residential — no new page needed for this phase</li>
+          <li>Target: 5–8 residential leads/month by end of Phase 3</li>
+          <li>Home window film keywords are low competition — Jerry wins by default when live</li>
+          <li>TCPA at $50 for residential (slightly higher ticket justifies higher CPA)</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">40–45</span><span class="pk-label">Conv/month target</span></div>
+          <div class="phase-kpi"><span class="pk-val">5–8</span><span class="pk-label">Residential leads</span></div>
+          <div class="phase-kpi"><span class="pk-val">$28–32</span><span class="pk-label">Blended CPA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 -->
+    <div class="phase-card">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">04</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Sep 8 – Oct 6</div>
+          <div class="pt-name">PPF Campaign + Dedicated Landing Page</div>
+        </div>
+        <span class="phase-badge future">Future</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Sep 8, 2026 → Oct 6, 2026 · 4 weeks · ~$1,100/mo* requires approval</div>
+        <ul class="phase-items">
+          <li>Build dedicated PPF landing page at ppf.newyorkwindowtinting.com — focused entirely on XPEL PPF, nose wraps, full wraps, film warranty</li>
+          <li>Launch dedicated PPF Search campaign targeting "xpel ppf installer," "paint protection film Long Island," "ppf near me" — nearly zero competition</li>
+          <li>Jerry is XPEL Certified — this is a hard competitive advantage. Lead with it.</li>
+          <li>Average ticket: $800–2,000 per PPF job. TCPA target: $75 (high ticket justifies higher CPA)</li>
+          <li>Target: 5–8 PPF leads/month at $800+ avg ticket = $4,000–8,000/mo in revenue from ~$375 ad spend</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">$800+</span><span class="pk-label">Avg PPF ticket</span></div>
+          <div class="phase-kpi"><span class="pk-val">5–8</span><span class="pk-label">PPF leads/mo</span></div>
+          <div class="phase-kpi"><span class="pk-val">10x+</span><span class="pk-label">ROAS target</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 5 -->
+    <div class="phase-card">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">05</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Oct 6 – Nov 3</div>
+          <div class="pt-name">Ceramic Coating Campaign + Landing Page</div>
+        </div>
+        <span class="phase-badge future">Future</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Oct 6, 2026 → Nov 3, 2026 · 4 weeks · ~$1,300/mo* requires approval</div>
+        <ul class="phase-items">
+          <li>Build dedicated ceramic coating landing page at ceramiccoating.newyorkwindowtinting.com</li>
+          <li>Launch ceramic coating Search campaign — MEDIUM competition, 70/mo local volume, high ticket</li>
+          <li>The paused Tyler-era ceramic campaigns already have keyword lists built — audit and rebuild them properly with new copy and the new landing page</li>
+          <li>TCPA target: $60–70 (ceramic avg ticket $400–800)</li>
+          <li>Target: 5–8 ceramic leads/month</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">50–60</span><span class="pk-label">Total conv/month</span></div>
+          <div class="phase-kpi"><span class="pk-val">5–8</span><span class="pk-label">Ceramic leads/mo</span></div>
+          <div class="phase-kpi"><span class="pk-val">$26–30</span><span class="pk-label">Blended CPA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 6 -->
+    <div class="phase-card">
+      <button class="phase-toggle" onclick="togglePhase(this)">
+        <span class="phase-num">06</span>
+        <div class="phase-toggle-title">
+          <div class="pt-label">Nov 3 – Dec 1</div>
+          <div class="pt-name">Vinyl Wraps + YouTube Pre-Roll</div>
+        </div>
+        <span class="phase-badge future">Future</span>
+        <span class="phase-chevron">▼</span>
+      </button>
+      <div class="phase-body">
+        <div class="phase-dates">Nov 3, 2026 → Dec 1, 2026 · 4 weeks · ~$1,400/mo* requires approval</div>
+        <ul class="phase-items">
+          <li>Build dedicated vinyl wrap landing page at vinylwrap.newyorkwindowtinting.com</li>
+          <li>Launch vinyl wrap campaign — full wraps, partial wraps, commercial vehicle wraps</li>
+          <li>Launch YouTube pre-roll ads — Long Island auto/home improvement audience, in-stream skippable. Reel content repurposed as YouTube ads.</li>
+          <li>6-month performance review with Jerry — ROI case for Year 2 retainer</li>
+          <li>Apply for Google Local Services Ads (LSA) if not already live — appears above all standard ads, pay-per-lead model</li>
+        </ul>
+        <div class="phase-kpi-row">
+          <div class="phase-kpi"><span class="pk-val">60–75</span><span class="pk-label">Conv/month target</span></div>
+          <div class="phase-kpi"><span class="pk-val">$22–26</span><span class="pk-label">Blended CPA</span></div>
+          <div class="phase-kpi"><span class="pk-val">150+</span><span class="pk-label">GBP Reviews</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM ARCHITECTURE -->
+  <section class="section">
+    <div class="section-label">The Full Vision</div>
+    <h2 class="section-title">One Campaign.<br>One Landing Page.<br>Each Service.</h2>
+    <p class="section-intro">Every high-ticket service Jerry offers gets its own dedicated campaign and landing page — purpose-built, keyword-aligned, conversion-optimized. This is how you dominate a local market at scale.</p>
+
+    <div class="arch-row">
+      <div class="arch-card live">
+        <div class="arch-icon">🪟</div>
+        <div class="arch-info">
+          <div class="ai-campaign">Phase 1–2 · Active Now</div>
+          <div class="ai-service">Window Tinting</div>
+          <div class="ai-url">windowtint.newyorkwindowtinting.com</div>
+          <span class="ai-status live">Live Since Jun 20</span>
+        </div>
+      </div>
+      <div class="arch-card future-card">
+        <div class="arch-icon">🛡️</div>
+        <div class="arch-info">
+          <div class="ai-campaign">Phase 4 · Sep 2026</div>
+          <div class="ai-service">XPEL PPF</div>
+          <div class="ai-url dim">ppf.newyorkwindowtinting.com</div>
+          <span class="ai-status queued">Queued · Phase 4</span>
+        </div>
+      </div>
+    </div>
+    <div class="arch-row">
+      <div class="arch-card future-card">
+        <div class="arch-icon">✨</div>
+        <div class="arch-info">
+          <div class="ai-campaign">Phase 5 · Oct 2026</div>
+          <div class="ai-service">Ceramic Coating</div>
+          <div class="ai-url dim">ceramiccoating.newyorkwindowtinting.com</div>
+          <span class="ai-status queued">Queued · Phase 5</span>
+        </div>
+      </div>
+      <div class="arch-card future-card">
+        <div class="arch-icon">🎨</div>
+        <div class="arch-info">
+          <div class="ai-campaign">Phase 6 · Nov 2026</div>
+          <div class="ai-service">Vinyl Wraps</div>
+          <div class="ai-url dim">vinylwrap.newyorkwindowtinting.com</div>
+          <span class="ai-status queued">Queued · Phase 6</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUDGET TABLE -->
+  <section class="section">
+    <div class="section-label">Ad Spend Plan</div>
+    <h2 class="section-title">Monthly Budget<br>Breakdown</h2>
+    <p class="section-intro">All increases above current spend require Jerry's approval. Gate rule: CPA must be at or below $35 before any phase expansion.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Search</th>
+            <th>PMax</th>
+            <th>Res/Comm</th>
+            <th>PPF</th>
+            <th>Ceramic</th>
+            <th>Total/mo</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="active-row">
+            <td>Phase 1 · Now</td>
+            <td>$300</td>
+            <td>$450</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td class="total-cell">~$775</td>
+            <td><span class="approval-cell approved">Active</span></td>
+          </tr>
+          <tr>
+            <td>Phase 2 · Jul</td>
+            <td>$360</td>
+            <td>$450</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td class="total-cell">~$810</td>
+            <td><span class="approval-cell approved">No change</span></td>
+          </tr>
+          <tr>
+            <td>Phase 3 · Aug</td>
+            <td>$360</td>
+            <td>$450</td>
+            <td>$150</td>
+            <td><span class="dash">—</span></td>
+            <td><span class="dash">—</span></td>
+            <td class="total-cell">~$960</td>
+            <td><span class="approval-cell needs">⚠ Needs OK</span></td>
+          </tr>
+          <tr>
+            <td>Phase 4 · Sep</td>
+            <td>$450</td>
+            <td>$450</td>
+            <td>$200</td>
+            <td>$150</td>
+            <td><span class="dash">—</span></td>
+            <td class="total-cell">~$1,250</td>
+            <td><span class="approval-cell needs">⚠ Needs OK</span></td>
+          </tr>
+          <tr>
+            <td>Phase 5 · Oct</td>
+            <td>$450</td>
+            <td>$450</td>
+            <td>$200</td>
+            <td>$200</td>
+            <td>$150</td>
+            <td class="total-cell">~$1,450</td>
+            <td><span class="approval-cell needs">⚠ Needs OK</span></td>
+          </tr>
+          <tr>
+            <td>Phase 6 · Nov</td>
+            <td>$450</td>
+            <td>$600</td>
+            <td>$200</td>
+            <td>$250</td>
+            <td>$200</td>
+            <td class="total-cell">~$1,700</td>
+            <td><span class="approval-cell needs">⚠ Needs OK</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-note">Scale gate: before increasing budget in any phase, the previous phase must show CPA ≤ $35. If CPA exceeds $40 two months in a row, pause expansion and diagnose.</p>
+  </section>
+
+  <!-- KPI TARGETS -->
+  <section class="section">
+    <div class="section-label">Success Metrics</div>
+    <h2 class="section-title">KPI Targets at<br>Each Milestone</h2>
+
+    <div class="kpi-grid">
+      <div class="kpi-col current-col">
+        <div class="kpi-col-label">Now · Jun 23, 2026</div>
+        <div class="kpi-item"><span class="ki-val">30</span><span class="ki-label">Monthly conversions</span></div>
+        <div class="kpi-item"><span class="ki-val">$25.81</span><span class="ki-label">Blended CPA</span></div>
+        <div class="kpi-item"><span class="ki-val">$19.78</span><span class="ki-label">PMax CPA</span></div>
+        <div class="kpi-item"><span class="ki-val">84 · 4.8★</span><span class="ki-label">GBP Reviews</span></div>
+        <div class="kpi-item"><span class="ki-val">1</span><span class="ki-label">Active landing pages</span></div>
+      </div>
+      <div class="kpi-col m3-col">
+        <div class="kpi-col-label">Phase 3 Target · Sep 2026</div>
+        <div class="kpi-item"><span class="ki-val">40–45</span><span class="ki-label">Monthly conversions</span></div>
+        <div class="kpi-item"><span class="ki-val">$28–32</span><span class="ki-label">Blended CPA</span></div>
+        <div class="kpi-item"><span class="ki-val">≥6/10</span><span class="ki-label">Avg Quality Score</span></div>
+        <div class="kpi-item"><span class="ki-val">100+</span><span class="ki-label">GBP Reviews</span></div>
+        <div class="kpi-item"><span class="ki-val">2</span><span class="ki-label">Active landing pages</span></div>
+      </div>
+      <div class="kpi-col m6-col">
+        <div class="kpi-col-label">Phase 6 Target · Dec 2026</div>
+        <div class="kpi-item"><span class="ki-val">60–75</span><span class="ki-label">Monthly conversions</span></div>
+        <div class="kpi-item"><span class="ki-val">$22–26</span><span class="ki-label">Blended CPA</span></div>
+        <div class="kpi-item"><span class="ki-val">≥7/10</span><span class="ki-label">Avg Quality Score</span></div>
+        <div class="kpi-item"><span class="ki-val">150+</span><span class="ki-label">GBP Reviews</span></div>
+        <div class="kpi-item"><span class="ki-val">4</span><span class="ki-label">Active landing pages</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTION ITEMS -->
+  <section class="section">
+    <div class="section-label">Action Required from Jerry</div>
+    <h2 class="section-title">3 Things That<br>Unlock the Next Level</h2>
+
+    <div class="action-card">
+      <div class="action-icon">📞</div>
+      <div class="action-body">
+        <div class="ab-priority urgent">⚡ Urgent · Target: This Week</div>
+        <div class="ab-title">CallRail Tracking Number</div>
+        <div class="ab-desc">
+          The new landing page currently shows Jerry's direct number (516) 496-8800. We need a CallRail tracking number to properly attribute phone calls back to the Google Ads campaigns. This is how we know which keywords and ads are generating actual phone calls — not just form submissions.
+        </div>
+        <div class="ab-unlock"><strong>Unlocks:</strong> Accurate call conversion tracking. Every phone lead gets attributed to the right campaign, keyword, and ad. Makes optimization decisions far more precise.</div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-icon">📸</div>
+      <div class="action-body">
+        <div class="ab-priority soon">📅 Ongoing · Weekly</div>
+        <div class="ab-title">Content Shoots — Keep Going</div>
+        <div class="ab-desc">
+          Weekly on-site shoots continue to be the engine behind the content strategy. Every shoot produces Reels for Instagram and Facebook, still images for PMax assets, and footage for future YouTube ads. The Tesla PPF reel, vinyl wrap reel, and caliper covers reel are all live and performing.
+        </div>
+        <div class="ab-unlock"><strong>Unlocks:</strong> Consistent reel output (4+/mo target), fresh PMax image and video assets, YouTube pre-roll content for Phase 6.</div>
+      </div>
+    </div>
+
+    <div class="action-card">
+      <div class="action-icon">💰</div>
+      <div class="action-body">
+        <div class="ab-priority later">📆 Phase 3 Decision · August 2026</div>
+        <div class="ab-title">Phase 3 Budget Approval (~$200 increase)</div>
+        <div class="ab-desc">
+          To launch the residential and commercial tinting campaign in Phase 3, the monthly ad spend increases from ~$810 to ~$960. Danny will present Phase 2 performance data before asking for this approval. No commitment needed now — the data will make the case.
+        </div>
+        <div class="ab-unlock"><strong>Unlocks:</strong> Residential tinting vertical — a market Tinting Motors doesn't compete in. Projected 5–8 new leads/month from an audience that currently has nowhere to go.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-info">
+      <div><strong>Cenovate Marketing · Danny Briceno</strong></div>
+      <div>cenovatemarketing@gmail.com</div>
+      <div style="margin-top:4px;">Retainer: $1,300/mo · Ad spend billed separately through platforms</div>
+    </div>
+    <a href="mailto:cenovatemarketing@gmail.com?subject=NY%20Window%20Tinting%20-%20Updated%20Plan&body=Hi%20Danny%2C%20I%20reviewed%20the%20updated%20plan." class="footer-cta">
+      Reply to Danny →
+    </a>
+  </footer>
+
+</main>
+
+<script>
+  function togglePhase(btn) {
+    const card = btn.closest('.phase-card');
+    card.classList.toggle('open');
+  }
+
+  // Auto-open Phase 1 on load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Phase 1 is already open via CSS class
+  });
+</script>
+
+</body>
+</html>
